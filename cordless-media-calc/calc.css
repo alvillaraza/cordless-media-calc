@@ -10,6 +10,16 @@
   -moz-text-fill-color: transparent;
 }
 
+.gray-box {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 8px 13px;
+}
+
+hr {
+border-top: .5px #E0E0E0;
+}
+
 body {
   background: radial-gradient(#00e0ff42 26%, #d9d9d900);
   padding: 50px;
@@ -25,12 +35,6 @@ header {
     align-items: center;
     gap: 4px;
   }
-}
-
-.gray-box {
-  background-color: #f2f2f2;
-  border-radius: 12px;
-  padding: 8px 13px;
 }
 
 .page-container {
@@ -91,5 +95,14 @@ form {
 
   .loan-result {
     text-align: center;
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 36px;
+
+  .comparisons-buttons {
+    border: none;
   }
 }
