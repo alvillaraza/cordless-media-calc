@@ -1,0 +1,63 @@
+body {
+  background: radial-gradient(#00e0ff42 26%, #d9d9d900);
+}
+
+.calc-container {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+
+  .gradient-text {
+    background-color: red;
+
+    background-image: linear-gradient(45deg, #312dff, #00e0ff);
+
+    background-size: 100%;
+    background-repeat: repeat;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+}
+
+.form-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 14.85px;
+  font-size: 20px;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 9.9px;
+  border-radius: 14.85px;
+
+  input,
+  select {
+    border-radius: 9.9px;
+    border-color: #b3b3b3;
+    padding: 6.19px 9.9px 6.19px 14.85px;
+  }
+
+  select option {
+    background: #fff;
+  }
+
+  button {
+    padding: 12.81px 40px 12.81px 40px;
+    border-radius: 38.43px;
+    margin-top: 50px;
+    background: linear-gradient(
+      33.2deg,
+      rgb(157, 147, 247) 30.2%,
+      rgb(117, 176, 247) 61.4%
+    );
+    border: none;
+    color: white;
+    font-size: 30px;
+  }
+}

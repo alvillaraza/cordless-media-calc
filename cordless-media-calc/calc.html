@@ -1,23 +1,36 @@
 <head>
+  <link rel="stylesheet" type="text/css" href="calc.css" />
   <body>
-    <h1>Compare your Mortgage loans Easier and Faster</h1>
-    <div>
-      <h2>Loan 1</h2>
-      <form>
-        <label for="downpayment">Down payment amount</label>
-        <input type="number">
-        <label for="loan amount">Loan amount</label>
-        <input type="number">
-        <label for="loan term">Loan term (In years)</label>
-        <input type="number">
-        <label for="intereste rate">Annual interest rate</label>
-        <input type="number">
-        <label for="loan type">Loan type</label>
-        <input type="dropdown">
-        <label for="payment frequency">Payment frequency</label>
-        <input type="dropdown">
-        <button>Compare loan types</button>
-      </form>
+    <div class="calc-container">
+      <h1>Compare your Mortgage loans <span class="gradient-text">Easier</span> and <span class="gradient-text">Faster</span></h1>
+      <div class="form-container">
+        <h2>Loan 1</h2>
+        <form>
+          <label for="downpayment">Down payment amount</label>
+          <input type="number" placeholder="$10,000" />
+          <label for="loan amount">Loan amount</label>
+          <input type="number" placeholder="$50,000" />
+          <label for="loan term">Loan term (In years)</label>
+          <input type="number" placeholder="10 years" />
+          <label for="intereste rate">Annual interest rate</label>
+          <input type="number" placeholder="$1,000" />
+          <label for="loan type">Loan type</label>
+          <select id="loan-type" name="loan type">
+            <option disabled hidden selected>Select</option>
+            <option value="fixed-rate">Fixed-rate</option>
+            <option value="adjustable-rate">Adjustable-rate</option>
+          </select>
+          <label for="payment frequency">Payment frequency</label>
+          <select id="payment-frequency" name="payment frequency">
+            <option disabled hidden selected>Select</option>
+            <option value="monthly">Monthly</option>
+            <option value="bi-weekly">Bi-weekly</option>
+            <option value="weekly">Weekly</option>
+          </select>
+          <!-- TODO: need bevel and link to what this button does -->
+          <button>Compare loan types</button>
+        </form>
+      </div>
     </div>
   </body>
 </head>
