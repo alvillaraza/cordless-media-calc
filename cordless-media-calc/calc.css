@@ -1,30 +1,52 @@
-body {
-  background: radial-gradient(#00e0ff42 26%, #d9d9d900);
+.gradient-text {
+  background-image: linear-gradient(45deg, #312dff, #00e0ff);
+
+  background-size: 100%;
+  background-repeat: repeat;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
-.calc-container {
-  margin: 50px;
-  text-align: center;
-  font-size: 40px;
+body {
+  background: radial-gradient(#00e0ff42 26%, #d9d9d900);
+  padding: 50px;
+}
 
-  .gradient-text {
-    background-color: red;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    background-image: linear-gradient(45deg, #312dff, #00e0ff);
-
-    background-size: 100%;
-    background-repeat: repeat;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+  .header-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 }
 
-.form-container {
+.gray-box {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 8px 13px;
+}
+
+.page-container {
+  text-align: center;
+  font-size: 30px;
+}
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.div-container {
   background-color: white;
-  padding: 40px;
+  padding: 50px;
   border-radius: 14.85px;
   font-size: 20px;
   text-align: left;
@@ -40,11 +62,8 @@ form {
   select {
     border-radius: 9.9px;
     border-color: #b3b3b3;
+    border-width: 1px;
     padding: 6.19px 9.9px 6.19px 14.85px;
-  }
-
-  select option {
-    background: #fff;
   }
 
   button {
@@ -59,5 +78,18 @@ form {
     border: none;
     color: white;
     font-size: 30px;
+  }
+}
+
+.results-table {
+  display: flex;
+  justify-content: space-evenly;
+
+  p {
+    font-size: 16px;
+  }
+
+  .loan-result {
+    text-align: center;
   }
 }
