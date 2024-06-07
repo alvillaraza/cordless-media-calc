@@ -11,152 +11,294 @@
         <link
             rel="stylesheet"
             type="text/css"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
             href="calc.css"
         />
     </head>
 
     <body>
-        <h1>
-            Compare your Mortgage loans
-            <span class="gradient-text">Easier</span> and
-            <span class="gradient-text">Faster</span>
-        </h1>
-        <div class="containers">
-            <h1>Loan 1</h1>
-            <fieldset>
-                <label for="downpayment">Down payment amount</label>
-                <input
-                    type="number"
-                    placeholder="$10,000"
-                />
-            </fieldset>
+        <main class="app-container">
+            <section class="form-container">
+                <div class="side-by-side">
+                    <div class="form-group">
+                        <h1>Loan 1</h1>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="downpayment"
+                                    >Down payment amount</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="$10,000"
+                                />
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="loan amount">Loan amount</label>
-                <input
-                    type="number"
-                    placeholder="$50,000"
-                />
-            </fieldset>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan amount">Loan amount</label>
+                                <input
+                                    type="number"
+                                    placeholder="$50,000"
+                                />
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="loan term">Loan term (In years)</label>
-                <input
-                    type="number"
-                    placeholder="10 years"
-                />
-            </fieldset>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan term"
+                                    >Loan term (In years)</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="10 years"
+                                />
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="intereste rate">Annual interest rate</label>
-                <input
-                    type="number"
-                    placeholder="$1,000"
-                />
-            </fieldset>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="intereste rate"
+                                    >Annual interest rate</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="$1,000"
+                                />
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="loan type">Loan type</label>
-                <!-- TODO: the arrown needs more padding on the right -->
-                <select
-                    id="loan-type"
-                    name="loan type"
-                >
-                    <option
-                        disabled
-                        hidden
-                        selected
-                    >
-                        Select
-                    </option>
-                    <option value="fixed-rate">Fixed-rate</option>
-                    <option value="adjustable-rate">Adjustable-rate</option>
-                </select>
-            </fieldset>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan type">Loan type</label>
+                                <!-- TODO: the arrown needs more padding on the right -->
+                                <select
+                                    id="loan-type"
+                                    name="loan type"
+                                >
+                                    <option
+                                        disabled
+                                        hidden
+                                        selected
+                                    >
+                                        Select
+                                    </option>
+                                    <option value="fixed-rate">
+                                        Fixed-rate
+                                    </option>
+                                    <option value="adjustable-rate">
+                                        Adjustable-rate
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="loan type">Rate</label>
-                <!-- TODO: the arrown needs more padding on the right -->
-                <input
-                    type="number"
-                    placeholder="7.17%"
-                />
-            </fieldset>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan type">Rate</label>
+                                <!-- TODO: the arrown needs more padding on the right -->
+                                <input
+                                    type="number"
+                                    placeholder="7.17%"
+                                />
+                            </fieldset>
+                        </div>
 
-            <fieldset>
-                <label for="payment frequency">Payment frequency</label>
-                <select
-                    id="payment-frequency"
-                    name="payment frequency"
-                >
-                    <option
-                        disabled
-                        hidden
-                        selected
-                    >
-                        Select
-                    </option>
-                    <option value="monthly">Monthly</option>
-                    <option value="bi-weekly">Bi-weekly</option>
-                    <option value="weekly">Weekly</option>
-                </select>
-            </fieldset>
-
-            <button>Compare loan types</button>
-
-            <!-- Results -->
-            <div class="div-container">
-                <h2 class="gradient-text">Results</h2>
-                <div class="results-table">
-                    <div>
-                        <h3>Comparisons</h3>
-                        <p>Monthly Payment Amount</p>
-                        <p>Total interest paid over the life of the loan</p>
-                        <p>Total cost of the loan (principal + interest)</p>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="payment frequency"
+                                    >Payment frequency</label
+                                >
+                                <select
+                                    id="payment-frequency"
+                                    name="payment frequency"
+                                >
+                                    <option
+                                        disabled
+                                        hidden
+                                        selected
+                                    >
+                                        Select
+                                    </option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="bi-weekly">Bi-weekly</option>
+                                    <option value="weekly">Weekly</option>
+                                </select>
+                            </fieldset>
+                        </div>
                     </div>
-                    <div class="loan-result">
-                        <h3>Loan 1</h3>
-                        <p class="gray-box">$60,000 Monthly</p>
-                        <p class="gray-box">$60, 000 Total interest</p>
-                        <p class="gray-box">$60, 000 Total Cost</p>
-                    </div>
-                    <div class="loan-result">
-                        <h3>Loan 2</h3>
-                        <p class="gray-box">$60,000 Monthly</p>
-                        <p class="gray-box">$60, 000 Total interest</p>
-                        <p class="gray-box">$60, 000 Total Cost</p>
+
+                    <div class="form-group">
+                        <h1>Loan 2</h1>
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="downpayment"
+                                    >Down payment amount</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="$10,000"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan amount">Loan amount</label>
+                                <input
+                                    type="number"
+                                    placeholder="$50,000"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan term"
+                                    >Loan term (In years)</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="10 years"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="intereste rate"
+                                    >Annual interest rate</label
+                                >
+                                <input
+                                    type="number"
+                                    placeholder="$1,000"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan type">Loan type</label>
+                                <!-- TODO: the arrown needs more padding on the right -->
+                                <select
+                                    id="loan-type"
+                                    name="loan type"
+                                >
+                                    <option
+                                        disabled
+                                        hidden
+                                        selected
+                                    >
+                                        Select
+                                    </option>
+                                    <option value="fixed-rate">
+                                        Fixed-rate
+                                    </option>
+                                    <option value="adjustable-rate">
+                                        Adjustable-rate
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="loan type">Rate</label>
+                                <!-- TODO: the arrown needs more padding on the right -->
+                                <input
+                                    type="number"
+                                    placeholder="7.17%"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="fieldset-group">
+                            <fieldset>
+                                <label for="payment frequency"
+                                    >Payment frequency</label
+                                >
+                                <select
+                                    id="payment-frequency"
+                                    name="payment frequency"
+                                >
+                                    <option
+                                        disabled
+                                        hidden
+                                        selected
+                                    >
+                                        Select
+                                    </option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="bi-weekly">Bi-weekly</option>
+                                    <option value="weekly">Weekly</option>
+                                </select>
+                            </fieldset>
+                        </div>
                     </div>
                 </div>
-                <div class="gray-box">
-                    Note: Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+
+                <button>Compare loan types</button>
+
+                <!-- Results -->
+                <div class="div-container">
+                    <h2 class="gradient-text">Results</h2>
+                    <div class="results-table">
+                        <div>
+                            <h3>Comparisons</h3>
+                            <p>Monthly Payment Amount</p>
+                            <p>Total interest paid over the life of the loan</p>
+                            <p>Total cost of the loan (principal + interest)</p>
+                        </div>
+                        <div class="loan-result">
+                            <h3>Loan 1</h3>
+                            <p class="gray-box">$60,000 Monthly</p>
+                            <p class="gray-box">$60, 000 Total interest</p>
+                            <p class="gray-box">$60, 000 Total Cost</p>
+                        </div>
+                        <div class="loan-result">
+                            <h3>Loan 2</h3>
+                            <p class="gray-box">$60,000 Monthly</p>
+                            <p class="gray-box">$60, 000 Total interest</p>
+                            <p class="gray-box">$60, 000 Total Cost</p>
+                        </div>
+                    </div>
+                    <div class="gray-box">
+                        Note: Lorem Ipsum is simply dummy text of the printing
+                        and typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book.
+                    </div>
                 </div>
-            </div>
 
-            <!-- Charts -->
-            <div class="div-container">
-                <h2 class="gradient-text">Charts</h2>
+                <!-- Charts -->
+                <div class="div-container">
+                    <h2 class="gradient-text">Charts</h2>
 
-                <h3>Comparisons</h3>
+                    <h3>Comparisons</h3>
 
-                <hr />
+                    <hr />
 
-                <div class="button-container">
-                    <button class="comparisons-buttons gray-box">All</button>
-                    <button class="comparisons-buttons gray-box">
-                        Monthly payment
-                    </button>
-                    <button class="comparisons-buttons gray-box">
-                        Total interest
-                    </button>
-                    <button class="comparisons-buttons gray-box">
-                        Total cost
-                    </button>
+                    <div class="button-container">
+                        <button class="comparisons-buttons gray-box">
+                            All
+                        </button>
+                        <button class="comparisons-buttons gray-box">
+                            Monthly payment
+                        </button>
+                        <button class="comparisons-buttons gray-box">
+                            Total interest
+                        </button>
+                        <button class="comparisons-buttons gray-box">
+                            Total cost
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </body>
 </html>
