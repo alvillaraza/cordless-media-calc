@@ -1,115 +1,162 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="calc.css" />
-  <body>
-    <header>
-      <div class="header-text">
-        <h2>S<span class="gradient-text">M</span>C</h2>
-        Side by side Mortage Calculator
-      </div>
-      <div class="bars">
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M28 10.333H4C3.45333 10.333 3 9.87967 3 9.33301C3 8.78634 3.45333 8.33301 4 8.33301H28C28.5467 8.33301 29 8.78634 29 9.33301C29 9.87967 28.5467 10.333 28 10.333Z"
-            fill="#292D32"
-          />
-          <path
-            d="M28 17H4C3.45333 17 3 16.5467 3 16C3 15.4533 3.45333 15 4 15H28C28.5467 15 29 15.4533 29 16C29 16.5467 28.5467 17 28 17Z"
-            fill="#292D32"
-          />
-          <path
-            d="M28 23.667H4C3.45333 23.667 3 23.2137 3 22.667C3 22.1203 3.45333 21.667 4 21.667H28C28.5467 21.667 29 22.1203 29 22.667C29 23.2137 28.5467 23.667 28 23.667Z"
-            fill="#292D32"
-          />
-        </svg>
-      </div>
-    </header>
-    <div class="page-container">
-      <h1>
-        Compare your Mortgage loans
-        <span class="gradient-text">Easier</span> and
-        <span class="gradient-text">Faster</span>
-      </h1>
-      <div class="containers">
-        <div class="div-container">
-          <h2>Loan 1</h2>
-          <form>
-            <label for="downpayment">Down payment amount</label>
-            <input type="number" placeholder="$10,000" />
-            <label for="loan amount">Loan amount</label>
-            <input type="number" placeholder="$50,000" />
-            <label for="loan term">Loan term (In years)</label>
-            <input type="number" placeholder="10 years" />
-            <label for="intereste rate">Annual interest rate</label>
-            <input type="number" placeholder="$1,000" />
-            <label for="loan type">Loan type</label>
-            <!-- TODO: the arrown needs more padding on the right -->
-            <select id="loan-type" name="loan type">
-              <option disabled hidden selected>Select</option>
-              <option value="fixed-rate">Fixed-rate</option>
-              <option value="adjustable-rate">Adjustable-rate</option>
-            </select>
-            <label for="payment frequency">Payment frequency</label>
-            <select id="payment-frequency" name="payment frequency">
-              <option disabled hidden selected>Select</option>
-              <option value="monthly">Monthly</option>
-              <option value="bi-weekly">Bi-weekly</option>
-              <option value="weekly">Weekly</option>
-            </select>
-            <!-- TODO: need bevel and link to what this button does -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="calc.css"
+        />
+    </head>
+
+    <body>
+        <h1>
+            Compare your Mortgage loans
+            <span class="gradient-text">Easier</span> and
+            <span class="gradient-text">Faster</span>
+        </h1>
+        <div class="containers">
+            <h1>Loan 1</h1>
+            <fieldset>
+                <label for="downpayment">Down payment amount</label>
+                <input
+                    type="number"
+                    placeholder="$10,000"
+                />
+            </fieldset>
+
+            <fieldset>
+                <label for="loan amount">Loan amount</label>
+                <input
+                    type="number"
+                    placeholder="$50,000"
+                />
+            </fieldset>
+
+            <fieldset>
+                <label for="loan term">Loan term (In years)</label>
+                <input
+                    type="number"
+                    placeholder="10 years"
+                />
+            </fieldset>
+
+            <fieldset>
+                <label for="intereste rate">Annual interest rate</label>
+                <input
+                    type="number"
+                    placeholder="$1,000"
+                />
+            </fieldset>
+
+            <fieldset>
+                <label for="loan type">Loan type</label>
+                <!-- TODO: the arrown needs more padding on the right -->
+                <select
+                    id="loan-type"
+                    name="loan type"
+                >
+                    <option
+                        disabled
+                        hidden
+                        selected
+                    >
+                        Select
+                    </option>
+                    <option value="fixed-rate">Fixed-rate</option>
+                    <option value="adjustable-rate">Adjustable-rate</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label for="loan type">Rate</label>
+                <!-- TODO: the arrown needs more padding on the right -->
+                <input
+                    type="number"
+                    placeholder="7.17%"
+                />
+            </fieldset>
+
+            <fieldset>
+                <label for="payment frequency">Payment frequency</label>
+                <select
+                    id="payment-frequency"
+                    name="payment frequency"
+                >
+                    <option
+                        disabled
+                        hidden
+                        selected
+                    >
+                        Select
+                    </option>
+                    <option value="monthly">Monthly</option>
+                    <option value="bi-weekly">Bi-weekly</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+            </fieldset>
+
             <button>Compare loan types</button>
-          </form>
-        </div>
 
-        <!-- Results -->
-        <div class="div-container">
-          <h2 class="gradient-text">Results</h2>
-          <div class="results-table">
-            <div>
-              <h3>Comparisons</h3>
-              <p>Monthly Payment Amount</p>
-              <p>Total interest paid over the life of the loan</p>
-              <p>Total cost of the loan (principal + interest)</p>
+            <!-- Results -->
+            <div class="div-container">
+                <h2 class="gradient-text">Results</h2>
+                <div class="results-table">
+                    <div>
+                        <h3>Comparisons</h3>
+                        <p>Monthly Payment Amount</p>
+                        <p>Total interest paid over the life of the loan</p>
+                        <p>Total cost of the loan (principal + interest)</p>
+                    </div>
+                    <div class="loan-result">
+                        <h3>Loan 1</h3>
+                        <p class="gray-box">$60,000 Monthly</p>
+                        <p class="gray-box">$60, 000 Total interest</p>
+                        <p class="gray-box">$60, 000 Total Cost</p>
+                    </div>
+                    <div class="loan-result">
+                        <h3>Loan 2</h3>
+                        <p class="gray-box">$60,000 Monthly</p>
+                        <p class="gray-box">$60, 000 Total interest</p>
+                        <p class="gray-box">$60, 000 Total Cost</p>
+                    </div>
+                </div>
+                <div class="gray-box">
+                    Note: Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book.
+                </div>
             </div>
-            <div class="loan-result">
-              <h3>Loan 1</h3>
-              <p class="gray-box">$60,000 Monthly</p>
-              <p class="gray-box">$60, 000 Total interest</p>
-              <p class="gray-box">$60, 000 Total Cost</p>
-            </div>
-            <div class="loan-result">
-              <h3>Loan 2</h3>
-              <p class="gray-box">$60,000 Monthly</p>
-              <p class="gray-box">$60, 000 Total interest</p>
-              <p class="gray-box">$60, 000 Total Cost</p>
-            </div>
-          </div>
-          <div class="gray-box">
-            Note: Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum has been the industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
 
-        <!-- Charts -->
-        <div class="div-container">
-          <h2 class="gradient-text">Charts</h2>
-          <h3>Comparisons</h3>
-          <hr />
-          <div class="button-container">
-            <button class="comparisons-buttons gray-box">All</button>
-            <button class="comparisons-buttons gray-box">Monthly payment</button>
-            <button class="comparisons-buttons gray-box">Total interest</button>
-            <button class="comparisons-buttons gray-box">Total cost</button>
-          </div>
+            <!-- Charts -->
+            <div class="div-container">
+                <h2 class="gradient-text">Charts</h2>
+
+                <h3>Comparisons</h3>
+
+                <hr />
+
+                <div class="button-container">
+                    <button class="comparisons-buttons gray-box">All</button>
+                    <button class="comparisons-buttons gray-box">
+                        Monthly payment
+                    </button>
+                    <button class="comparisons-buttons gray-box">
+                        Total interest
+                    </button>
+                    <button class="comparisons-buttons gray-box">
+                        Total cost
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
-</head>
+    </body>
+</html>
