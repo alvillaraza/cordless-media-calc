@@ -45,250 +45,54 @@
     --font-color-h5: var(--color-primary);
     --font-size-h6: 1.2rem;
     --font-color-h6: var(--color-primary);
-
-    // Borders
-    --border-radius-lg: 12px;
-    --border-radius-md: 8px;
-    --border-radius-sm: 4px;
-
-    --border-width: 1px;
-    --border-color: var(--color-neutral-light);
-    --border-color-hover: var(--color-primary);
-
-    // Spacing
-    --gap-lg: 16px;
-    --gap-md: 8px;
-    --gap-sm: 4px;
-    --gap-xs: 2px;
-
-    --padding-lg: 24px;
-    --padding-md: 12px;
-    --padding-sm: 8px;
-
-    // Specific Variables
-    // Clients can hijack this directly instead of messing with the generic variables above
-    --button-background-color: var(--color-primary);
-    --button-text-color: var(--color-primary-offset);
-    --button-background-color-hover: var(--color-secondary);
-    --button-text-color-hover: var(--color-secondary-offset);
-    --button-border-width: 0;
-    --button-border-color: transparent;
-    --button-border-color-hover: transparent;
-    --button-border-radius: var(--border-radius-sm);
-
-    --input-background-color: var(--color-neutral-white);
-    --input-border-color: var(--color-neutral-dark);
-    --input-border-radius: var(--border-radius-sm);
-    --input-outline-width: 2px;
-    --input-outline-color: var(--color-primary);
-
-    --result-text-outline-color: var(--color-neutral-white);
-
-    --tooltip-border-radius: var(--border-radius-md);
-    --tooltip-background-color: var(--color-primary);
-    --tooltip-text-color: var(--color-primary-offset);
-
-    --transition-duration: 0.24s;
-    --transition-timing: ease-in-out;
 }
 
-section.form-container {
-    display: flex;
-    flex-direction: column;
+h1 {
+    font-family: var(--font-heading);
+}
+
+h2 {
+    font-family: var(--font-heading);
+}
+
+h3 {
     font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-regular);
-    padding: var(--padding-lg);
-
-    h1 {
-        color: var(--font-color-h1);
-        font-family: var(--font-heading);
-        font-size: var(--font-size-h1);
-        font-weight: var(--font-weight-bold);
-    }
-
-    h2 {
-        color: var(--font-color-h2);
-        font-family: var(--font-heading);
-        font-size: var(--font-size-h2);
-        font-weight: var(--font-weight-bold);
-    }
-
-    h3 {
-        color: var(--font-color-h3);
-        font-family: var(--font-body);
-        font-size: var(--font-size-h3);
-        font-weight: var(--font-weight-bold);
-    }
-
-    h4 {
-        color: var(--font-color-h4);
-        font-family: var(--font-heading);
-        font-size: var(--font-size-h4);
-        font-weight: var(--font-weight-bold);
-        text-align: center;
-    }
-
-    h5 {
-        color: var(--font-color-h5);
-        font-family: var(--font-heading);
-        font-size: var(--font-size-h5);
-        font-weight: var(--font-weight-bold);
-    }
-
-    h6 {
-        color: var(--font-color-h6);
-        font-family: var(--font-body);
-        font-size: var(--font-size-h6);
-        font-weight: var(--font-weight-bold);
-    }
-
-    hr {
-        border-color: var(--color-neutral-light);
-    }
 }
 
-div.form-group {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--gap-lg);
+h4 {
+    font-family: var(--font-heading);
+}
 
-    &.advanced-controls {
-        display: none;
+h5 {
+    font-family: var(--font-heading);
+}
 
-        &.show {
-            display: flex;
-        }
-    }
+h6 {
+    font-family: var(--font-body);
+}
 
-    footer {
-        display: flex;
-        justify-content: center;
+.gradient-text {
+    background-image: linear-gradient(45deg, #312dff, #00e0ff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
 
-        button {
-            background-color: var(--button-background-color);
-            color: var(--button-text-color);
-            border: var(--button-border-width) solid var(--button-border-color);
-            border-radius: var(--button-border-radius);
-            font-size: var(--font-size-md);
-            padding: var(--padding-md) var(--padding-lg);
-            transition-property: background-color, color;
-            transition-duration: var(--transition-duration);
-            transition-timing-function: var(--transition-timing);
-
-            &:hover {
-                background-color: var(--button-background-color-hover);
-                border-color: var(--button-border-color-hover);
-                color: var(--button-text-color-hover);
-            }
-        }
-    }
+main.app-container {
+    background: rgb(0, 212, 255);
+    background: radial-gradient(
+        circle,
+        rgba(0, 212, 255, 0.23715423669467783) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
 }
 
 .side-by-side {
     display: flex;
     gap: var(--gap-lg);
-}
-
-div.fieldset-group {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-md);
-
-    &.basic-output {
-        fieldset {
-            flex: none;
-        }
-
-        p {
-            flex: 1;
-            margin: 0;
-        }
-    }
-
-    fieldset {
-        display: flex;
-        flex: auto;
-        flex-direction: column;
-        gap: var(--gap-xs);
-
-        label {
-            align-items: center;
-            display: flex;
-            font-size: var(--font-size-sm);
-            color: var(--font-color);
-            gap: var(--gap-sm);
-
-            button {
-                aspect-ratio: ~'1 / 1';
-                background-color: var(--button-background-color);
-                border: none;
-                border-radius: 100%;
-                color: var(--button-text-color);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 12px;
-                font-size: 0.5rem;
-                transition-property: background-color, color;
-                transition-duration: var(--transition-duration);
-                transition-timing-function: var(--transition-timing);
-
-                &:hover {
-                    background-color: var(--button-background-color-hover);
-                    color: var(--button-text-color-hover);
-                }
-            }
-        }
-
-        input,
-        textarea,
-        select {
-            background-color: var(--input-background-color);
-            border: var(--border-width) solid var(--input-border-color);
-            border-radius: var(--input-border-radius);
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            padding: var(--padding-sm) var(--padding-md);
-            transition-property: border-color;
-            transition-duration: var(--transition-duration);
-            transition-timing-function: var(--transition-timing);
-
-            &::placeholder {
-                color: var(--color-neutral-light);
-                font-weight: var(--font-weight-light);
-            }
-
-            &:hover,
-            &:active,
-            &:focus {
-                border-color: var(--border-color-hover);
-                outline-width: var(--input-outline-width);
-                outline-color: var(--input-outline-color);
-            }
-        }
-    }
-}
-
-.results-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    text-align: center;
-
-    .results-text {
-        > * {
-            margin: 0;
-        }
-    }
-
-    p {
-        color: var(--font-color);
-        font-size: var(--font-size-lg);
-        margin: 0;
-    }
 }
 
 // Utility
@@ -309,74 +113,3 @@ div.fieldset-group {
         text-align: left;
     }
 }
-
-// .gradient-text {
-//     background-image: linear-gradient(45deg, #312dff, #00e0ff);
-
-//     background-size: 100%;
-//     background-repeat: repeat;
-
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//     -moz-background-clip: text;
-//     -moz-text-fill-color: transparent;
-// }
-
-// .gray-box {
-//     background-color: #f2f2f2;
-//     border-radius: 12px;
-//     padding: 8px 13px;
-// }
-
-// hr {
-//     border-top: 0.5px #e0e0e0;
-// }
-
-// body {
-//     background: radial-gradient(#00e0ff42 26%, #d9d9d900);
-//     padding: 50px;
-// }
-
-// input,
-//     select {
-//         border-radius: 9.9px;
-//         border-color: #b3b3b3;
-//         border-width: 1px;
-//         padding: 6.19px 9.9px 6.19px 14.85px;
-//     }
-
-//     button {
-//         padding: 12.81px 40px 12.81px 40px;
-//         border-radius: 38.43px;
-//         margin-top: 50px;
-//         background: linear-gradient(
-//             33.2deg,
-//             rgb(157, 147, 247) 30.2%,
-//             rgb(117, 176, 247) 61.4%
-//         );
-//         border: none;
-//         color: white;
-//         font-size: 30px;
-//     }
-
-// .results-table {
-//     display: flex;
-//     justify-content: space-evenly;
-
-//     p {
-//         font-size: 16px;
-//     }
-
-//     .loan-result {
-//         text-align: center;
-//     }
-// }
-
-// .button-container {
-//     display: flex;
-//     gap: 36px;
-
-//     .comparisons-buttons {
-//         border: none;
-//     }
-// }
