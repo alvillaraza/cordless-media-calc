@@ -1,74 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&display=swap');
 
-:root {
-    // Colors
-    --color-neutral-white: #fafafa;
-    --color-neutral-light: #a3a3a3;
-    --color-neutral-dark: #1f2937;
-    --color-neutral-black: #171717;
-
-    --color-primary: #155e75;
-    --color-primary-offset: #ecfeff;
-    --color-secondary: #eab308;
-    --color-secondary-offset: #422006;
-    --color-tertiary: #831843;
-    --color-tertiary-offset: #fdf2f8;
-
-    // Fonts
-    --font-heading: 'DM Serif Text', serif;
-    --font-body: 'DM Sans', sans-serif;
-
-    --font-weight-light: 400;
-    --font-weight-regular: 500;
-    --font-weight-bold: 700;
-
-    --font-size-lg: 16px;
-    --font-size-md: 14px;
-    --font-size-sm: 12px;
-
-    --font-color: var(--color-neutral-dark);
-
-    --font-size-h1: 5.2rem;
-
-    @media screen and (max-width: 420px) {
-        --font-size-h1: 4.6rem;
-    }
-
-    --font-color-h1: var(--color-primary);
-    --font-size-h2: 2.2rem;
-    --font-color-h2: var(--color-primary);
-    --font-size-h3: 1.6rem;
-    --font-color-h3: var(--color-primary);
-    --font-size-h4: 1.6rem;
-    --font-color-h4: var(--color-primary);
-    --font-size-h5: 1.2rem;
-    --font-color-h5: var(--color-primary);
-    --font-size-h6: 1.2rem;
-    --font-color-h6: var(--color-primary);
-}
-
-h1 {
-    font-family: var(--font-heading);
-}
-
-h2 {
-    font-family: var(--font-heading);
-}
-
-h3 {
-    font-family: var(--font-body);
-}
-
-h4 {
-    font-family: var(--font-heading);
-}
-
+h1,
+h2,
+h4,
 h5 {
-    font-family: var(--font-heading);
+    font-family: 'DM Serif Text', serif;
 }
 
+h3,
 h6 {
-    font-family: var(--font-body);
+    font-family: 'DM Sans', sans-serif;
 }
 
 .gradient-text {
@@ -79,37 +20,4 @@ h6 {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-}
-
-main.app-container {
-    background: rgb(0, 212, 255);
-    background: radial-gradient(
-        circle,
-        rgba(0, 212, 255, 0.23715423669467783) 0%,
-        rgba(255, 255, 255, 1) 100%
-    );
-}
-
-.side-by-side {
-    display: flex;
-    gap: var(--gap-lg);
-}
-
-// Utility
-.hide {
-    display: none !important;
-}
-
-// Bootstrap Overrides
-.custom-tooltip {
-    --bs-tooltip-bg: var(--tooltip-background-color);
-    --bs-tooltip-color: var(--tooltip-text-color);
-    --bs-tooltip-opacity: 1;
-    --bs-tooltip-padding-x: var(--padding-lg);
-    --bs-tooltip-padding-y: var(--padding-md);
-    --bs-tooltip-border-radius: var(--tooltip-border-radius);
-
-    .tooltip-inner {
-        text-align: left;
-    }
 }
