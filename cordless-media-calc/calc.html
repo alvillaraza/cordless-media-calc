@@ -9,22 +9,46 @@
         <title>Document</title>
 
         <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
             integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
             crossorigin="anonymous"
         />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="calc.css"
-        />
+
+        <style>
+            h1,
+            h2,
+            h4,
+            h5 {
+                font-family: 'DM Serif Text', serif;
+            }
+
+            h3,
+            h6 {
+                font-family: 'DM Sans', sans-serif;
+            }
+
+            .gradient-text {
+                background-image: linear-gradient(45deg, #312dff, #00e0ff);
+                background-size: 100%;
+                background-repeat: repeat;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-background-clip: text;
+                -moz-text-fill-color: transparent;
+            }
+        </style>
     </head>
 
     <body>
         <main class="p-4">
             <header class="text-center">
-                <h1 class="display-4 m-0 gradient-text">
+                <h1 class="display-5 m-0 gradient-text">
                     Compare your Mortgage Loans
                 </h1>
                 <p class="lead m-0">
@@ -34,25 +58,19 @@
 
             <hr />
 
-            <header
-                class="d-flex justify-content-center align-items-center mt-4"
-            >
-                <h3 class="gradient-text flex-fill text-center m-0">
-                    <strong>Loan 1</strong>
-                </h3>
-                <span class="px-2 text-black-50">or</span>
-                <h3 class="gradient-text flex-fill text-center m-0">
-                    <strong>Loan 2</strong>
-                </h3>
-            </header>
+            <!-- <section class="pb-2">
+                <div
+                    class="d-flex flex-wrap mb-3"
+                    style="gap: 1.5rem; justify-content: space-between"
+                >
+                    <div class="flex-fill">
+                        <h3 class="gradient-text flex-fill text-center m-0">
+                            Loan <strong>1</strong>
+                        </h3>
 
-            <section class="form-container">
-                <div class="d-flex">
-                    <!-- Loan 1 -->
-                    <div class="flex-fill pr-3">
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="down-payment-1"
                                 ><small>Down Payment</small></label
                             >
@@ -73,7 +91,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-amount-1"
                                 ><small>Loan Amount</small></label
                             >
@@ -94,7 +112,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-term-1"
                                 ><small>Loan Term</small></label
                             >
@@ -121,7 +139,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="annual-interest-rate-1"
                                 ><small>Annual Interest Rate</small></label
                             >
@@ -144,7 +162,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-type-1"
                                 ><small>Loan Type</small></label
                             >
@@ -172,7 +190,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="rate-1"
                                 ><small>Rate</small></label
                             >
@@ -195,7 +213,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="payment-frequency-1"
                                 ><small>Payment Frequency</small></label
                             >
@@ -223,11 +241,14 @@
                         </fieldset>
                     </div>
 
-                    <!-- Loan 2 -->
-                    <div class="flex-fill pl-3">
+                    <div class="flex-fill">
+                        <h3 class="gradient-text flex-fill text-center m-0">
+                            Loan <strong>2</strong>
+                        </h3>
+
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="down-payment-1"
                                 ><small>Down Payment</small></label
                             >
@@ -248,7 +269,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-amount-1"
                                 ><small>Loan Amount</small></label
                             >
@@ -269,7 +290,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-term-1"
                                 ><small>Loan Term</small></label
                             >
@@ -296,7 +317,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="annual-interest-rate-1"
                                 ><small>Annual Interest Rate</small></label
                             >
@@ -319,7 +340,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="loan-type-1"
                                 ><small>Loan Type</small></label
                             >
@@ -347,7 +368,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="rate-1"
                                 ><small>Rate</small></label
                             >
@@ -370,7 +391,7 @@
 
                         <fieldset class="mb-2">
                             <label
-                                class="text-black-50"
+                                class="text-black-50 mb-1"
                                 for="payment-frequency-1"
                                 ><small>Payment Frequency</small></label
                             >
@@ -399,50 +420,100 @@
                     </div>
                 </div>
 
-                <hr />
-
-                <div class="d-flex">
+                <div class="d-flex justify-content-center">
                     <button
-                        class="btn btn-primary flex-fill"
+                        class="btn btn-primary btn-lg px-5 py-3"
                         type="button"
                     >
-                        Compare loan types
+                        Compare Loans
                     </button>
                 </div>
-            </section>
+            </section> -->
+
+            <hr />
 
             <!-- Results -->
-            <h2 class="gradient-text">Results</h2>
-            <div class="results-table">
+            <section>
+                <header class="text-center">
+                    <h2 class="gradient-text">Comparison Results</h2>
+                    <div class="d-flex justify-content-center align-items-end">
+                        <h4 class="text-center m-0">Loan <strong>1</strong></h4>
+
+                        <span class="px-2 text-black-50">vs</span>
+
+                        <h4 class="text-center m-0">Loan <strong>2</strong></h4>
+                    </div>
+                </header>
+            </section>
+
+            <hr />
+
+            <article class="pb-4">
+                <div
+                    class="d-flex flex-wrap justify-content-center align-items-center p-2"
+                >
+                    <small><strong>Monthly Payment Amount</strong></small>
+
+                    <div class="d-flex flex-wrap flex-fill text-center">
+                        <div class="d-flex flex-fill">
+                            <div class="flex-fill px-2">
+                                $<span id="monthlyPaymentAmountOne">60,000</span>
+                                <small class="text-black-50">monthly</small>
+                            </div>
+                            <div class="flex-fill px-2">
+                                $<span class=monthlyPaymentAmountTwo">60,000</span>
+                                <small class="text-black-50">monthly</small>
+                            </div>
+                        </div>
+
+                        <!-- Difference -->
+                        <div class="d-flex flex-fill">
+                            <div class="flex-fill px-2">
+                                +$4,400
+                                <small class="text-black-50">monthly</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="d-flex justify-content-center align-items-center">
+                    <small
+                        ><strong>Total Interest Paid</strong> <br />over the
+                        life of the loan
+                    </small>
+
+                    <span class="flex-fill text-center">$60,000 Monthly</span>
+                    <span class="flex-fill text-center">$60,000 Monthly</span>
+                </div> -->
+
+                <!-- <div>
+                    <p></p>
+                    <p>$60, 000 Total interest</p>
+                    <p>$60, 000 Total interest</p>
+                </div>
+
                 <div>
-                    <h3>Comparisons</h3>
-                    <p>Monthly Payment Amount</p>
-                    <p>Total interest paid over the life of the loan</p>
                     <p>Total cost of the loan (principal + interest)</p>
-                </div>
-                <div class="loan-result">
-                    <h3>Loan 1</h3>
-                    <p class="gray-box">$60,000 Monthly</p>
-                    <p class="gray-box">$60, 000 Total interest</p>
-                    <p class="gray-box">$60, 000 Total Cost</p>
-                </div>
-                <div class="loan-result">
-                    <h3>Loan 2</h3>
-                    <p class="gray-box">$60,000 Monthly</p>
-                    <p class="gray-box">$60, 000 Total interest</p>
-                    <p class="gray-box">$60, 000 Total Cost</p>
-                </div>
-            </div>
-            <div class="gray-box">
-                Note: Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book.
-            </div>
+                    <p>$60, 000 Total Cost</p>
+                    <p>$60, 000 Total Cost</p>
+                </div> -->
+            </article>
+
+            <aside
+                class="border p-4"
+                style="border-radius: 1rem"
+            >
+                <small
+                    ><strong>NOTE:</strong> Lorem Ipsum is simply dummy text of
+                    the printing and typesetting industry. Lorem Ipsum has been
+                    the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book.</small
+                >
+            </aside>
 
             <!-- Charts -->
-            <div class="div-container">
+            <!-- <div class="div-container">
                 <h2 class="gradient-text">Charts</h2>
 
                 <h3>Comparisons</h3>
@@ -450,18 +521,18 @@
                 <hr />
 
                 <div class="button-container">
-                    <button class="comparisons-buttons gray-box">All</button>
-                    <button class="comparisons-buttons gray-box">
+                    <button class="comparisons-buttons ">All</button>
+                    <button class="comparisons-buttons ">
                         Monthly payment
                     </button>
-                    <button class="comparisons-buttons gray-box">
+                    <button class="comparisons-buttons ">
                         Total interest
                     </button>
-                    <button class="comparisons-buttons gray-box">
+                    <button class="comparisons-buttons ">
                         Total cost
                     </button>
                 </div>
-            </div>
+            </div> -->
         </main>
     </body>
 </html>
