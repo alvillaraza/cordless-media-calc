@@ -54,377 +54,373 @@
 
       <hr />
 
-      <!-- <section class="pb-2">
-                <div
-                    class="d-flex flex-wrap mb-3"
-                    style="gap: 1.5rem; justify-content: space-between"
+      <section class="pb-2">
+        <div
+          class="d-flex flex-wrap mb-3"
+          style="gap: 1.5rem; justify-content: space-between"
+        >
+          <div class="flex-fill">
+            <h3 class="gradient-text flex-fill text-center m-0">
+              Loan <strong>1</strong>
+            </h3>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="downPayment1"
+                ><small>Down Payment</small></label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  type="text"
+                  id="downPayment1"
+                  class="form-control"
+                  placeholder="30,000"
+                  aria-label="Down Payment"
+                  aria-describedby="downPayment1"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanAmount1"
+                ><small>Loan Amount</small></label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  type="text"
+                  id="loanAmount1"
+                  class="form-control"
+                  placeholder="250,000"
+                  aria-label="Loan Amount"
+                  aria-describedby="loanAmount1"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanTerm1"
+                ><small>Loan Term</small></label
+              >
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="loanTerm1"
+                  class="form-control"
+                  min="5"
+                  max="30"
+                  increment="5"
+                  placeholder="15"
+                  step="5"
+                  value="15"
+                  aria-label="Loan Term"
+                  aria-describedby="loanTerm1"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">years</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="annualInterestRate1"
+                ><small>Annual Interest Rate</small></label
+              >
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="annualInterestRate1"
+                  class="form-control"
+                  placeholder="7.25"
+                  value="7.25"
+                  aria-label="Annual Interest Rate"
+                  aria-describedby="annualInterestRate1"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanType1"
+                ><small>Loan Type</small></label
+              >
+
+              <div class="input-group">
+                <select
+                  class="form-control"
+                  id="loanType1"
+                  placeholder="What type of Loan is this?"
+                  aria-label="Loan Type"
+                  aria-describedby="loanType1"
                 >
-                    <div class="flex-fill">
-                        <h3 class="gradient-text flex-fill text-center m-0">
-                            Loan <strong>1</strong>
-                        </h3>
+                  <option
+                    disabled
+                    hidden
+                    selected
+                  >
+                    What type of loan is this?
+                  </option>
+                  <option>Fixed</option>
+                  <option>Adjustable</option>
+                </select>
+              </div>
+            </fieldset>
 
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="down-payment-1"
-                                ><small>Down Payment</small></label
-                            >
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                </div>
-                                <input
-                                    type="text"
-                                    id="down-payment-1"
-                                    class="form-control"
-                                    placeholder="30,000"
-                                    aria-label="Down Payment"
-                                    aria-describedby="down-payment-1"
-                                />
-                            </div>
-                        </fieldset>
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="rate1"
+                ><small>Rate</small></label
+              >
 
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-amount-1"
-                                ><small>Loan Amount</small></label
-                            >
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                </div>
-                                <input
-                                    type="text"
-                                    id="loan-amount-1"
-                                    class="form-control"
-                                    placeholder="250,000"
-                                    aria-label="Loan Amount"
-                                    aria-describedby="loan-amount-1"
-                                />
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-term-1"
-                                ><small>Loan Term</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="loan-term-1"
-                                    class="form-control"
-                                    min="5"
-                                    max="30"
-                                    increment="5"
-                                    placeholder="15"
-                                    step="5"
-                                    value="15"
-                                    aria-label="Loan Term"
-                                    aria-describedby="loan-term-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">years</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="annual-interest-rate-1"
-                                ><small>Annual Interest Rate</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="annual-interest-rate-1"
-                                    class="form-control"
-                                    placeholder="7.25"
-                                    value="7.25"
-                                    aria-label="Annual Interest Rate"
-                                    aria-describedby="annual-interest-rate-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-type-1"
-                                ><small>Loan Type</small></label
-                            >
-
-                            <div class="input-group">
-                                <select
-                                    class="form-control"
-                                    id="loan-type-1"
-                                    placeholder="What type of Loan is this?"
-                                    aria-label="Loan Type"
-                                    aria-describedby="loan-type-1"
-                                >
-                                    <option
-                                        disabled
-                                        hidden
-                                        selected
-                                    >
-                                        What type of loan is this?
-                                    </option>
-                                    <option>Fixed</option>
-                                    <option>Adjustable</option>
-                                </select>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="rate-1"
-                                ><small>Rate</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="rate-1"
-                                    class="form-control"
-                                    placeholder="7.25"
-                                    value="7.25"
-                                    aria-label="Rate"
-                                    aria-describedby="rate-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="payment-frequency-1"
-                                ><small>Payment Frequency</small></label
-                            >
-
-                            <div class="input-group">
-                                <select
-                                    class="form-control"
-                                    id="payment-frequency-1"
-                                    placeholder="What type of Loan is this?"
-                                    aria-label="Payment Frequency"
-                                    aria-describedby="payment-frequency-1"
-                                >
-                                    <option
-                                        disabled
-                                        hidden
-                                        selected
-                                    >
-                                        How often are your payments?
-                                    </option>
-                                    <option value="monthly">Monthly</option>
-                                    <option value="biweekly">Bi-weekly</option>
-                                    <option value="weekly">Weekly</option>
-                                </select>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class="flex-fill">
-                        <h3 class="gradient-text flex-fill text-center m-0">
-                            Loan <strong>2</strong>
-                        </h3>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="down-payment-1"
-                                ><small>Down Payment</small></label
-                            >
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                </div>
-                                <input
-                                    type="text"
-                                    id="down-payment-1"
-                                    class="form-control"
-                                    placeholder="30,000"
-                                    aria-label="Down Payment"
-                                    aria-describedby="down-payment-1"
-                                />
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-amount-1"
-                                ><small>Loan Amount</small></label
-                            >
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                </div>
-                                <input
-                                    type="text"
-                                    id="loan-amount-1"
-                                    class="form-control"
-                                    placeholder="250,000"
-                                    aria-label="Loan Amount"
-                                    aria-describedby="loan-amount-1"
-                                />
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-term-1"
-                                ><small>Loan Term</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="loan-term-1"
-                                    class="form-control"
-                                    min="5"
-                                    max="30"
-                                    increment="5"
-                                    placeholder="15"
-                                    step="5"
-                                    value="15"
-                                    aria-label="Loan Term"
-                                    aria-describedby="loan-term-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">years</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="annual-interest-rate-1"
-                                ><small>Annual Interest Rate</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="annual-interest-rate-1"
-                                    class="form-control"
-                                    placeholder="7.25"
-                                    value="7.25"
-                                    aria-label="Annual Interest Rate"
-                                    aria-describedby="annual-interest-rate-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="loan-type-1"
-                                ><small>Loan Type</small></label
-                            >
-
-                            <div class="input-group">
-                                <select
-                                    class="form-control"
-                                    id="loan-type-1"
-                                    placeholder="What type of Loan is this?"
-                                    aria-label="Loan Type"
-                                    aria-describedby="loan-type-1"
-                                >
-                                    <option
-                                        disabled
-                                        hidden
-                                        selected
-                                    >
-                                        What type of loan is this?
-                                    </option>
-                                    <option>Fixed</option>
-                                    <option>Adjustable</option>
-                                </select>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="rate-1"
-                                ><small>Rate</small></label
-                            >
-
-                            <div class="input-group">
-                                <input
-                                    type="number"
-                                    id="rate-1"
-                                    class="form-control"
-                                    placeholder="7.25"
-                                    value="7.25"
-                                    aria-label="Rate"
-                                    aria-describedby="rate-1"
-                                />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="mb-2">
-                            <label
-                                class="text-black-50 mb-1"
-                                for="payment-frequency-1"
-                                ><small>Payment Frequency</small></label
-                            >
-
-                            <div class="input-group">
-                                <select
-                                    class="form-control"
-                                    id="payment-frequency-1"
-                                    placeholder="What type of Loan is this?"
-                                    aria-label="Payment Frequency"
-                                    aria-describedby="payment-frequency-1"
-                                >
-                                    <option
-                                        disabled
-                                        hidden
-                                        selected
-                                    >
-                                        How often are your payments?
-                                    </option>
-                                    <option value="monthly">Monthly</option>
-                                    <option value="biweekly">Bi-weekly</option>
-                                    <option value="weekly">Weekly</option>
-                                </select>
-                            </div>
-                        </fieldset>
-                    </div>
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="rate1"
+                  class="form-control"
+                  placeholder="7.25"
+                  value="7.25"
+                  aria-label="Rate"
+                  aria-describedby="rate1"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
                 </div>
+              </div>
+            </fieldset>
 
-                <div class="d-flex justify-content-center">
-                    <button
-                        class="btn btn-primary btn-lg px-5 py-3"
-                        type="button"
-                    >
-                        Compare Loans
-                    </button>
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="paymentFrequency1"
+                ><small>Payment Frequency</small></label
+              >
+
+              <div class="input-group">
+                <select
+                  class="form-control"
+                  id="paymentFrequency1"
+                  placeholder="What type of Loan is this?"
+                  aria-label="Payment Frequency"
+                  aria-describedby="paymentFrequency1"
+                >
+                  <option
+                    disabled
+                    hidden
+                    selected
+                  >
+                    How often are your payments?
+                  </option>
+                  <option value="monthly">Monthly</option>
+                  <option value="biweekly">Bi-weekly</option>
+                  <option value="weekly">Weekly</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="flex-fill">
+            <h3 class="gradient-text flex-fill text-center m-0">
+              Loan <strong>2</strong>
+            </h3>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="downPayment2"
+                ><small>Down Payment</small></label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
                 </div>
-            </section> -->
+                <input
+                  type="text"
+                  id="downPayment2"
+                  class="form-control"
+                  placeholder="30,000"
+                  aria-label="Down Payment"
+                  aria-describedby="downPayment2"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanAmount2"
+                ><small>Loan Amount</small></label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  type="text"
+                  id="loanAmount2"
+                  class="form-control"
+                  placeholder="250,000"
+                  aria-label="Loan Amount"
+                  aria-describedby="loanAmount2"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanTerm2"
+                ><small>Loan Term</small></label
+              >
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="loanTerm2"
+                  class="form-control"
+                  min="5"
+                  max="30"
+                  increment="5"
+                  placeholder="15"
+                  step="5"
+                  value="15"
+                  aria-label="Loan Term"
+                  aria-describedby="loanTerm2"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">years</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="annualInterestRate2"
+                ><small>Annual Interest Rate</small></label
+              >
+
+              <div class="input-group">
+                <input type="number" id="annualInterestRate2""
+                class="form-control" placeholder="7.25" value="7.25"
+                aria-label="Annual Interest Rate"
+                aria-describedby="annualInterestRate2"" />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="loanType2"
+                ><small>Loan Type</small></label
+              >
+
+              <div class="input-group">
+                <select
+                  class="form-control"
+                  id="loanType2"
+                  placeholder="What type of Loan is this?"
+                  aria-label="Loan Type"
+                  aria-describedby="loanType2"
+                >
+                  <option
+                    disabled
+                    hidden
+                    selected
+                  >
+                    What type of loan is this?
+                  </option>
+                  <option>Fixed</option>
+                  <option>Adjustable</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="rate2"
+                ><small>Rate</small></label
+              >
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="rate2"
+                  class="form-control"
+                  placeholder="7.25"
+                  value="7.25"
+                  aria-label="Rate"
+                  aria-describedby="rate2"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-2">
+              <label
+                class="text-black-50 mb-1"
+                for="paymentFrequency2"
+                ><small>Payment Frequency</small></label
+              >
+
+              <div class="input-group">
+                <select
+                  class="form-control"
+                  id="paymentFrequency2""
+                  placeholder="What type of Loan is this?"
+                  aria-label="Payment Frequency"
+                  aria-describedby="paymentFrequency2""
+                >
+                  <option
+                    disabled
+                    hidden
+                    selected
+                  >
+                    How often are your payments?
+                  </option>
+                  <option value="monthly">Monthly</option>
+                  <option value="biweekly">Bi-weekly</option>
+                  <option value="weekly">Weekly</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button
+          id="compareLoansButton"
+            class="btn btn-primary btn-lg px-5 py-3"
+            type="button"
+          >
+            Compare Loans
+          </button>
+        </div>
+      </section>
 
       <hr />
 
@@ -445,25 +441,24 @@
       <hr />
 
       <article class="pb-4">
-        <div class="mb-2">
+        <div class="mb-3">
           <div class="px-3 py-2 text-center">
             <small class="d-flex flex-wrap justify-content-center"
               ><strong class="px-1 text-nowrap">Monthly Payment</strong></small
             >
           </div>
 
-          <div class="d-flex flex-wrap text-center bg-light border rounded">
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
+          <div
+            class="d-flex flex-wrap text-center border overflow-hidden"
+            style="border-radius: 0.75rem"
+          >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
               <p class="mb-0">
                 $<span id="monthlyPaymentAmountOne">60,000</span>
               </p>
               <small class="text-black-50">monthly</small>
             </div>
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
               <p class="mb-0">
                 $<span class="monthlyPaymentAmountTwo">60,000</span>
               </p>
@@ -472,7 +467,7 @@
 
             <!-- Difference -->
             <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
+              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
             >
               <p class="mb-0"><strong>+$4,400</strong></p>
               <small class="text-black-50">difference</small>
@@ -480,7 +475,7 @@
           </div>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <div class="px-3 py-2 text-center">
             <small class="d-flex flex-wrap justify-content-center"
               ><strong class="px-1 text-nowrap">Total Interest Paid</strong>
@@ -490,35 +485,31 @@
             </small>
           </div>
 
-          <div class="d-flex flex-wrap text-center bg-light border rounded">
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
+          <div
+            class="d-flex flex-wrap text-center border overflow-hidden"
+            style="border-radius: 0.75rem"
+          >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
               <p class="mb-0">
-                $<span id="monthlyPaymentAmountOne">60,000</span>
+                $<span id="monthlyPaymentAmountOne">11,000</span>
               </p>
-              <small class="text-black-50">monthly</small>
             </div>
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
               <p class="mb-0">
-                $<span class="monthlyPaymentAmountTwo">60,000</span>
+                $<span class="monthlyPaymentAmountTwo">5,000</span>
               </p>
-              <small class="text-black-50">monthly</small>
             </div>
 
             <!-- Difference -->
             <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
+              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
             >
-              <p class="mb-0"><strong>+$4,400</strong></p>
-              <small class="text-black-50">difference</small>
+              <p class="mb-0"><strong>+$6,000</strong></p>
             </div>
           </div>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <div class="px-3 py-2 text-center">
             <small class="d-flex flex-wrap justify-content-center"
               ><strong class="px-1 text-nowrap">Total Cost of the Loan</strong>
@@ -528,30 +519,24 @@
             >
           </div>
 
-          <div class="d-flex flex-wrap text-center bg-light border rounded">
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
-              <p class="mb-0">
-                $<span id="monthlyPaymentAmountOne">60,000</span>
-              </p>
-              <small class="text-black-50">monthly</small>
+          <div
+            class="d-flex flex-wrap text-center border overflow-hidden"
+            style="border-radius: 0.75rem"
+          >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
+              <p class="mb-0">$<span id="monthlyPaymentAmountOne">N/A</span></p>
             </div>
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
-            >
+            <div class="d-flex flex-column flex-fill px-4 py-3">
               <p class="mb-0">
-                $<span class="monthlyPaymentAmountTwo">60,000</span>
+                $<span class="monthlyPaymentAmountTwo">N/A</span>
               </p>
-              <small class="text-black-50">monthly</small>
             </div>
 
             <!-- Difference -->
             <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-white rounded"
+              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
             >
-              <p class="mb-0"><strong>+$4,400</strong></p>
-              <small class="text-black-50">difference</small>
+              <p class="mb-0"><strong>N/A</strong></p>
             </div>
           </div>
         </div>
