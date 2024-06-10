@@ -30,54 +30,45 @@ let paymentFrequency2 = document.getElementById('paymentFrequency2');
 let btnCompare = document.getElementById('compareLoansButton');
 
 btnCompare.addEventListener('click', function () {
-  console.log('formValues', [loanOneValues(), loanTwoValues()]);
+  // TODO: Monthly Payment is returning NaN
+
+  let loanOne = loanOneValues();
+
+  console.log(
+    'monthlyPayment',
+    monthlyPayment(
+      loanOne.loanAmountValue,
+      (loanOne.loanAmountValue / loanOne.loanTermValue) * 12,
+      loanOne.rateValue
+    )
+  );
 });
 
 function loanOneValues() {
   return {
-    downPayment: downPayment1.value
-      ? downPayment1.value
-      : (downPayment1.value = 0),
-    loanAmountValue: loanAmount1.value
-      ? loanAmount1.value
-      : (loanAmount1.value = 0),
-    loanTermValue: loanTerm1.value ? loanTerm1.value : (loanTerm1.value = 0),
-    annualInterestRateValue: annualInterestRate1.value
-      ? annualInterestRate1.value
-      : (annualInterestRate1.value = 0),
+    downPayment: parseInt(
+      downPayment1.value ? downPayment1.value : (downPayment1.value = 0)
+    ),
+    loanAmountValue: parseInt(
+      loanAmount1.value ? loanAmount1.value : (loanAmount1.value = 0)
+    ),
+    loanTermValue: parseInt(
+      loanTerm1.value ? loanTerm1.value : (loanTerm1.value = 0)
+    ),
+    annualInterestRateValue: parseInt(
+      annualInterestRate1.value
+        ? annualInterestRate1.value
+        : (annualInterestRate1.value = 0)
+    ),
     loanTypeValue:
       loanType1.value !== 'What type of loan is this?'
         ? loanType1.value
         : (loanType1.value = 'Fixed'),
-    rateValue: rate1.value ? rate1.value : (rate1.value = 0),
+    rateValue: parseInt(rate1.value ? rate1.value : (rate1.value = 0)),
     paymentFrequencyValue:
       paymentFrequency1.value !== 'How often are your payments?'
         ? paymentFrequency1.value
         : (paymentFrequency1.value = 'Monthly'),
-  };
-}
-
-function loanTwoValues() {
-  return {
-    downPayment: downPayment2.value
-      ? downPayment2.value
-      : (downPayment2.value = 0),
-    loanAmountValue: loanAmount2.value
-      ? loanAmount2.value
-      : (loanAmount2.value = 0),
-    loanTermValue: loanTerm2.value ? loanTerm2.value : (loanTerm2.value = 0),
-    annualInterestRateValue: annualInterestRate2.value
-      ? annualInterestRate2.value
-      : (annualInterestRate2.value = 0),
-    loanTypeValue:
-      loanType2.value !== 'What type of loan is this?'
-        ? loanType2.value
-        : (loanType2.value = 'Fixed'),
-    rateValue: rate2.value ? rate2.value : (rate2.value = 0),
-    paymentFrequencyValue:
-      paymentFrequency2.value !== 'How often are your payments?'
-        ? paymentFrequency2.value
-        : (paymentFrequency2.value = 'Monthly'),
   };
 }
 
