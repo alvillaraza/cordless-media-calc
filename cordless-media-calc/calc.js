@@ -17,4 +17,29 @@ let paymentFrequency2 = document.getElementById('paymentFrequency2');
 let btnCompare = document.getElementById('compareLoansButton');
 
 btnCompare.addEventListener('click', function () {
+  const principal = parseInt(loanAmount1.value);
+  const apy = parseInt(annualInterestRate1.value);
+  const loanTerm = parseInt(loanTerm1.value);
+
+  console.log(
+    'monthly payment',
+    calculateMonthlyPayment(principal, apy, loanTerm),
+  );
 });
+
+function calculateMonthlyPayment(principal, annualInterestRate, years) {
+  // Convert the annual interest rate to a monthly rate
+  const monthlyInterestRate = annualInterestRate / 100 / 12;
+
+  // Calculate the number of monthly payments
+  const numberOfPayments = years * 12;
+
+  // Calculate the monthly payment using the formula
+  const monthlyPayment =
+    (principal *
+      monthlyInterestRate *
+      Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+  return monthlyPayment;
+}
