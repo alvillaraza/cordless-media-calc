@@ -16,25 +16,43 @@ let paymentFrequency2 = document.getElementById('paymentFrequency2');
 
 let btnCompare = document.getElementById('compareLoansButton');
 
+const principal = parseInt(loanAmount1.value);
+const apy = parseInt(annualInterestRate1.value);
+const loanTerm = parseInt(loanTerm1.value);
+
+// todo; need to figure out why i can't select the 2nd option
+let paymentFrequency;
+paymentFrequency1.addEventListener('change', function () {
+  paymentFrequency = this.value;
+});
+
+const numberOfPayments = () => {
+  if (paymentFrequency == 'Monthly') {
+   return loanTerm * 12;
+  } else if (paymentFrequency == 'Bi-weekly') {
+    return loanTerm * 24;
+  } else if (paymentFrequency == 'Weekly') {
+    return loanTerm * 52;
+  } else {
+    return ('number of payments could not be calculated');
+  }
+};
+
 btnCompare.addEventListener('click', function () {
-  const principal = parseInt(loanAmount1.value);
-  const apy = parseInt(annualInterestRate1.value);
-  const loanTerm = parseInt(loanTerm1.value);
 
   console.log(
     'monthly payment',
     calculateMonthlyPayment(principal, apy, loanTerm),
   );
+
+  console.log('total interest', calculateTotalInterest(principal, apy, numberOfPayments()));
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
-  // Convert the annual interest rate to a monthly rate
   const monthlyInterestRate = annualInterestRate / 100 / 12;
 
-  // Calculate the number of monthly payments
   const numberOfPayments = years * 12;
 
-  // Calculate the monthly payment using the formula
   const monthlyPayment =
     (principal *
       monthlyInterestRate *
@@ -42,4 +60,22 @@ function calculateMonthlyPayment(principal, annualInterestRate, years) {
     (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
   return monthlyPayment;
+}
+
+function calculateTotalInterest(
+  principal,
+  annualInterestRate,
+  numberOfPayments,
+) {
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
+
+  const monthlyPayment =
+    (principal * monthlyInterestRate) /
+    (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+  const totalPayment = monthlyPayment * numberOfPayments;
+
+  const totalInterest = totalPayment - principal;
+
+  return totalInterest;
 }
