@@ -46,6 +46,8 @@ btnCompare.addEventListener('click', function () {
   );
 
   console.log('total interest', calculateTotalInterest(principal, apy, numberOfPayments()));
+
+  console.log('total mortgage cost', calculateTotalMortgageCost(principal, apy, loanTerm));
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
@@ -78,4 +80,16 @@ function calculateTotalInterest(
   const totalInterest = totalPayment - principal;
 
   return totalInterest;
+}
+function calculateTotalMortgageCost(loanAmount, annualInterestRate, loanTermYears) {
+    const monthlyInterestRate = annualInterestRate / 12 / 100;
+
+    const totalPayments = loanTermYears * 12;
+
+    const monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalPayments)) /
+        (Math.pow(1 + monthlyInterestRate, totalPayments) - 1);
+
+    const totalCost = monthlyPayment * totalPayments;
+
+    return totalCost.toFixed(2); 
 }
