@@ -384,136 +384,143 @@
           </button>
         </div>
       </section>
-
-      <hr />
-
+      
       <!-- Results -->
-      <section>
-        <header class="text-center">
-          <h2 class="gradient-text">Comparison Results</h2>
-          <div class="d-flex justify-content-center align-items-end">
-            <h4 class="text-center m-0">Loan <strong>1</strong></h4>
+      <section id="results-section" class="d-none">
+        <hr />
+        <section>
+          <header class="text-center">
+            <h2 class="gradient-text">Comparison Results</h2>
+            <div class="d-flex justify-content-center align-items-end">
+              <h4 class="text-center m-0">Loan <strong>1</strong></h4>
 
-            <span class="px-2 text-black-50">vs</span>
+              <span class="px-2 text-black-50">vs</span>
 
-            <h4 class="text-center m-0">Loan <strong>2</strong></h4>
+              <h4 class="text-center m-0">Loan <strong>2</strong></h4>
+            </div>
+          </header>
+        </section>
+
+        <hr />
+
+        <article class="pb-4">
+          <div class="mb-3">
+            <div class="px-3 py-2 text-center">
+              <small class="d-flex flex-wrap justify-content-center"
+                ><strong class="px-1 text-nowrap"
+                  >Monthly Payment</strong
+                ></small
+              >
+            </div>
+
+            <div
+              class="d-flex flex-wrap text-center border overflow-hidden"
+              style="border-radius: 0.5rem"
+            >
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p
+                  class="mb-0"
+                  id="monthlyPaymentAmountOne"
+                  class="monthlyPaymentAmountOne"
+                >
+                  N/A
+                </p>
+                <small class="text-black-50">monthly</small>
+              </div>
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p class="mb-0" id="monthlyPaymentAmountTwo">N/A</p>
+                <small class="text-black-50">monthly</small>
+              </div>
+
+              <div
+                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+              >
+                <p id="monthlyDifference" class="mb-0">
+                  <strong>N/A</strong>
+                </p>
+                <small class="text-black-50">difference</small>
+              </div>
+            </div>
           </div>
-        </header>
+
+          <div class="mb-3">
+            <div class="px-3 py-2 text-center">
+              <small class="d-flex flex-wrap justify-content-center"
+                ><strong class="px-1 text-nowrap">Total Interest Paid</strong>
+                <span class="text-black-50 text-nowrap"
+                  >of the loan over the life</span
+                >
+              </small>
+            </div>
+
+            <div
+              class="d-flex flex-wrap text-center border overflow-hidden"
+              style="border-radius: 0.5rem"
+            >
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p class="mb-0" id="totalInterestPaidOne">N/A</p>
+              </div>
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p id="totalInterestPaidTwo" class="mb-0">N/A</p>
+              </div>
+
+              <div
+                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+              >
+              <!-- TODO: ask ray why this dff is here, it's not in the design -->
+                <p id="totalInterestPaidDiff" class="mb-0"><strong>N/A</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="px-3 py-2 text-center">
+              <small class="d-flex flex-wrap justify-content-center"
+                ><strong class="px-1 text-nowrap"
+                  >Total Cost of the Loan</strong
+                >
+                <span class="text-black-50 text-nowrap"
+                  >(principal + interest)</span
+                ></small
+              >
+            </div>
+
+            <div
+              class="d-flex flex-wrap text-center border overflow-hidden"
+              style="border-radius: 0.5rem"
+            >
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p class="mb-0" id="totalCostOfLoanOne">N/A</p>
+              </div>
+              <div class="d-flex flex-column flex-fill px-4 py-3">
+                <p
+                  class="mb-0"
+                  class="monthlyPaymentAmountTwo"
+                  id="totalCostOfLoanTwo"
+                >
+                  N/A
+                </p>
+              </div>
+
+              <div
+                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+              >
+                <p class="mb-0"><strong>N/A</strong></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="bg-light border px-4 py-3" style="border-radius: 0.5rem">
+          <small
+            ><strong>NOTE:</strong> Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type
+            specimen book.</small
+          >
+        </aside>
       </section>
-
-      <hr />
-
-      <article class="pb-4">
-        <div class="mb-3">
-          <div class="px-3 py-2 text-center">
-            <small class="d-flex flex-wrap justify-content-center"
-              ><strong class="px-1 text-nowrap">Monthly Payment</strong></small
-            >
-          </div>
-
-          <div
-            class="d-flex flex-wrap text-center border overflow-hidden"
-            style="border-radius: 0.5rem"
-          >
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p
-                class="mb-0"
-                id="monthlyPaymentAmountOne"
-                class="monthlyPaymentAmountOne"
-              ></p>
-              <small class="text-black-50">monthly</small>
-            </div>
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p class="mb-0" id="monthlyPaymentAmountTwo">60,000</p>
-              <small class="text-black-50">monthly</small>
-            </div>
-
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-            >
-              <!-- TODO: need calc for this difference -->
-              <p id="monthlyDifference" class="mb-0">
-                <strong>+$4,400</strong>
-              </p>
-              <small class="text-black-50">difference</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="px-3 py-2 text-center">
-            <small class="d-flex flex-wrap justify-content-center"
-              ><strong class="px-1 text-nowrap">Total Interest Paid</strong>
-              <span class="text-black-50 text-nowrap"
-                >of the loan over the life</span
-              >
-            </small>
-          </div>
-
-          <div
-            class="d-flex flex-wrap text-center border overflow-hidden"
-            style="border-radius: 0.5rem"
-          >
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p class="mb-0" id="totalInterestPaidOne">11,000</p>
-            </div>
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p id="totalInterestPaidTwo" class="mb-0">5,000</p>
-            </div>
-
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-            >
-              <p class="mb-0"><strong>+$6,000</strong></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="px-3 py-2 text-center">
-            <small class="d-flex flex-wrap justify-content-center"
-              ><strong class="px-1 text-nowrap">Total Cost of the Loan</strong>
-              <span class="text-black-50 text-nowrap"
-                >(principal + interest)</span
-              ></small
-            >
-          </div>
-
-          <div
-            class="d-flex flex-wrap text-center border overflow-hidden"
-            style="border-radius: 0.5rem"
-          >
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p class="mb-0" id="totalCostOfLoanOne">N/A</p>
-            </div>
-            <div class="d-flex flex-column flex-fill px-4 py-3">
-              <p
-                class="mb-0"
-                class="monthlyPaymentAmountTwo"
-                id="totalCostOfLoanTwo"
-              >
-                N/A
-              </p>
-            </div>
-
-            <div
-              class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-            >
-              <p class="mb-0"><strong>N/A</strong></p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <aside class="bg-light border px-4 py-3" style="border-radius: 0.5rem">
-        <small
-          ><strong>NOTE:</strong> Lorem Ipsum is simply dummy text of the
-          printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type and scrambled it to make a type specimen book.</small
-        >
-      </aside>
-
       <!-- Charts -->
       <!-- <div class="div-container">
         <h2 class="gradient-text">Charts</h2>

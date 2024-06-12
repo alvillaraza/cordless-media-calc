@@ -114,7 +114,10 @@ btnCompare.addEventListener('click', function () {
   const monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
   document.getElementById('monthlyDifference').innerHTML = formatter.format(monthlyDiff);
 
-  const interestPaidDiff = calculateDifference(totalInterestPaid1, totalInterestPaid2)
+  const interestPaidDiff = calculateDifference(totalInterestPaid1, totalInterestPaid2);
+  document.getElementById('totalInterestPaidDiff').innerHTML = formatter.format(interestPaidDiff);
+
+  document.getElementById('results-section').classList.remove('d-none');
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
