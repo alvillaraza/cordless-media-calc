@@ -55,7 +55,6 @@ const numberOfPayments2 = () => {
 
 var options = { style: 'currency', currency: 'USD' };
 var formatter = new Intl.NumberFormat('en-US', options);
-// var result = formatter.format(number);
 
 btnCompare.addEventListener('click', function () {
   let monthlyPayment1;
@@ -66,14 +65,6 @@ btnCompare.addEventListener('click', function () {
   );
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
     formatter.format(monthlyPayment1);
-  console.log(
-    'monthly payment for 1',
-    calculateMonthlyPayment(
-      principal(loanAmount1),
-      apy(annualInterestRate1),
-      loanTerm(loanTerm1),
-    ),
-  );
 
   let monthlyPayment2;
   monthlyPayment2 = calculateMonthlyPayment(
@@ -84,15 +75,6 @@ btnCompare.addEventListener('click', function () {
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
     formatter.format(monthlyPayment2);
 
-  console.log(
-    'monthly payment for 2',
-    calculateMonthlyPayment(
-      principal(loanAmount2),
-      apy(annualInterestRate2),
-      loanTerm(loanTerm2),
-    ),
-  );
-
   let totalInterestPaid1;
   totalInterestPaid1 = calculateTotalInterest(
     principal(loanAmount1),
@@ -101,15 +83,6 @@ btnCompare.addEventListener('click', function () {
   );
   document.getElementById('totalInterestPaidOne').innerHTML =
     formatter.format(totalInterestPaid1);
-
-  console.log(
-    'total interest for 1',
-    calculateTotalInterest(
-      principal(loanAmount1),
-      apy(annualInterestRate1),
-      numberOfPayments1(),
-    ),
-  );
 
   let totalInterestPaid2;
   totalInterestPaid2 = calculateTotalInterest(
@@ -120,31 +93,14 @@ btnCompare.addEventListener('click', function () {
   document.getElementById('totalInterestPaidTwo').innerHTML =
     formatter.format(totalInterestPaid2);
 
-  console.log(
-    'total interest for 2',
-    calculateTotalInterest(
-      principal(loanAmount2),
-      apy(annualInterestRate2),
-      numberOfPayments2(),
-    ),
-  );
-
   let totalCostOfLoan1;
   totalCostOfLoan1 = calculateTotalMortgageCost(
     principal(loanAmount1),
     apy(annualInterestRate1),
     loanTerm(loanTerm1),
   );
-  document.getElementById('totalCostOfLoanOne').innerHTML = formatter.format(totalCostOfLoan1);
-
-  console.log(
-    'total mortgage cost for 1',
-    calculateTotalMortgageCost(
-      principal(loanAmount1),
-      apy(annualInterestRate1),
-      loanTerm(loanTerm1),
-    ),
-  );
+  document.getElementById('totalCostOfLoanOne').innerHTML =
+    formatter.format(totalCostOfLoan1);
 
   let totalCostOfLoan2;
   totalCostOfLoan2 = calculateTotalMortgageCost(
@@ -152,16 +108,13 @@ btnCompare.addEventListener('click', function () {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
-  document.getElementById('totalCostOfLoanTwo').innerHTML = formatter.format(totalCostOfLoan2);
+  document.getElementById('totalCostOfLoanTwo').innerHTML =
+    formatter.format(totalCostOfLoan2);
+  
+  const monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
+  document.getElementById('monthlyDifference').innerHTML = formatter.format(monthlyDiff);
 
-  console.log(
-    'total mortgage cost for 2',
-    calculateTotalMortgageCost(
-      principal(loanAmount2),
-      apy(annualInterestRate2),
-      loanTerm(loanTerm2),
-    ),
-  );
+  const interestPaidDiff = calculateDifference(totalInterestPaid1, totalInterestPaid2)
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
@@ -214,4 +167,9 @@ function calculateTotalMortgageCost(
   const totalCost = monthlyPayment * totalPayments;
 
   return totalCost.toFixed(2);
+}
+
+function calculateDifference (item1, item2) {
+  const difference = item1 - item2;
+  return difference.toFixed(2)
 }
