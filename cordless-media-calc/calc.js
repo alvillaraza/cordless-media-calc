@@ -16,38 +16,96 @@ let paymentFrequency2 = document.getElementById('paymentFrequency2');
 
 let btnCompare = document.getElementById('compareLoansButton');
 
-const principal = parseInt(loanAmount1.value);
-const apy = parseInt(annualInterestRate1.value);
-const loanTerm = parseInt(loanTerm1.value);
+const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
+const apy = (annualInterestRateInput) =>
+  parseFloat(annualInterestRateInput.value);
+const loanTerm = (loanTermInput) => parseInt(loanTermInput.value);
 
-// todo; need to figure out why i can't select the 2nd option
-let paymentFrequency;
+let paymentFreq1;
 paymentFrequency1.addEventListener('change', function () {
-  paymentFrequency = this.value;
+    paymentFreq1 = this.value;
 });
+const numberOfPayments1 = () => {
 
-const numberOfPayments = () => {
-  if (paymentFrequency == 'Monthly') {
-   return loanTerm * 12;
-  } else if (paymentFrequency == 'Bi-weekly') {
-    return loanTerm * 24;
-  } else if (paymentFrequency == 'Weekly') {
-    return loanTerm * 52;
+  if (paymentFreq1 == 'Monthly') {
+    return loanTerm(loanTerm1) * 12;
+  } else if (paymentFreq1 == 'Bi-weekly') {
+    return loanTerm(loanTerm1) * 24;
+  } else if (paymentFreq1 == 'Weekly') {
+    return loanTerm(loanTerm1) * 52;
   } else {
-    return ('number of payments could not be calculated');
+    return 'number of payments could not be calculated';
+  }
+};
+
+let paymentFreq2;
+paymentFrequency2.addEventListener('change', function () {
+    paymentFreq2 = this.value;
+});
+const numberOfPayments2 = () => {
+
+  if (paymentFreq2 == 'Monthly') {
+    return loanTerm(loanTerm2) * 12;
+  } else if (paymentFreq2 == 'Bi-weekly') {
+    return loanTerm(loanTerm2) * 24;
+  } else if (paymentFreq2 == 'Weekly') {
+    return loanTerm(loanTerm2) * 52;
+  } else {
+    return 'number of payments could not be calculated';
   }
 };
 
 btnCompare.addEventListener('click', function () {
-
   console.log(
-    'monthly payment',
-    calculateMonthlyPayment(principal, apy, loanTerm),
+    'monthly payment for 1',
+    calculateMonthlyPayment(
+      principal(loanAmount1),
+      apy(annualInterestRate1),
+      loanTerm(loanTerm1),
+    ),
+  );
+  console.log(
+    'monthly payment for 2',
+    calculateMonthlyPayment(
+      principal(loanAmount2),
+      apy(annualInterestRate2),
+      loanTerm(loanTerm2),
+    ),
   );
 
-  console.log('total interest', calculateTotalInterest(principal, apy, numberOfPayments()));
+  console.log(
+    'total interest for 1',
+    calculateTotalInterest(
+      principal(loanAmount1),
+      apy(annualInterestRate1),
+      numberOfPayments1(),
+    ),
+  );
+  console.log(
+    'total interest for 2',
+    calculateTotalInterest(
+      principal(loanAmount2),
+      apy(annualInterestRate2),
+      numberOfPayments2(),
+    ),
+  );
 
-  console.log('total mortgage cost', calculateTotalMortgageCost(principal, apy, loanTerm));
+  console.log(
+    'total mortgage cost for 1',
+    calculateTotalMortgageCost(
+      principal(loanAmount1),
+      apy(annualInterestRate1),
+      loanTerm(loanTerm1),
+    ),
+  );
+  console.log(
+    'total mortgage cost for 2',
+    calculateTotalMortgageCost(
+      principal(loanAmount2),
+      apy(annualInterestRate2),
+      loanTerm(loanTerm2),
+    ),
+  );
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
@@ -64,6 +122,7 @@ function calculateMonthlyPayment(principal, annualInterestRate, years) {
   return monthlyPayment;
 }
 
+// TODO: I don't think this formula is correct, the number seems too big
 function calculateTotalInterest(
   principal,
   annualInterestRate,
@@ -81,15 +140,22 @@ function calculateTotalInterest(
 
   return totalInterest;
 }
-function calculateTotalMortgageCost(loanAmount, annualInterestRate, loanTermYears) {
-    const monthlyInterestRate = annualInterestRate / 12 / 100;
+function calculateTotalMortgageCost(
+  loanAmount,
+  annualInterestRate,
+  loanTermYears,
+) {
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
 
-    const totalPayments = loanTermYears * 12;
+  const totalPayments = loanTermYears * 12;
 
-    const monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalPayments)) /
-        (Math.pow(1 + monthlyInterestRate, totalPayments) - 1);
+  const monthlyPayment =
+    (loanAmount *
+      (monthlyInterestRate *
+        Math.pow(1 + monthlyInterestRate, totalPayments))) /
+    (Math.pow(1 + monthlyInterestRate, totalPayments) - 1);
 
-    const totalCost = monthlyPayment * totalPayments;
+  const totalCost = monthlyPayment * totalPayments;
 
-    return totalCost.toFixed(2); 
+  return totalCost.toFixed(2);
 }
