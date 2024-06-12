@@ -53,6 +53,10 @@ const numberOfPayments2 = () => {
   }
 };
 
+var options = { style: 'currency', currency: 'USD' };
+var formatter = new Intl.NumberFormat('en-US', options);
+// var result = formatter.format(number);
+
 btnCompare.addEventListener('click', function () {
   let monthlyPayment1;
   monthlyPayment1 = calculateMonthlyPayment(
@@ -61,7 +65,7 @@ btnCompare.addEventListener('click', function () {
     loanTerm(loanTerm1),
   );
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
-    monthlyPayment1;
+    formatter.format(monthlyPayment1);
   console.log(
     'monthly payment for 1',
     calculateMonthlyPayment(
@@ -78,7 +82,7 @@ btnCompare.addEventListener('click', function () {
     loanTerm(loanTerm2),
   );
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
-    monthlyPayment2;
+    formatter.format(monthlyPayment2);
 
   console.log(
     'monthly payment for 2',
@@ -96,7 +100,7 @@ btnCompare.addEventListener('click', function () {
     numberOfPayments1(),
   );
   document.getElementById('totalInterestPaidOne').innerHTML =
-    totalInterestPaid1;
+    formatter.format(totalInterestPaid1);
 
   console.log(
     'total interest for 1',
@@ -114,7 +118,7 @@ btnCompare.addEventListener('click', function () {
     numberOfPayments2(),
   );
   document.getElementById('totalInterestPaidTwo').innerHTML =
-    totalInterestPaid2;
+    formatter.format(totalInterestPaid2);
 
   console.log(
     'total interest for 2',
@@ -131,7 +135,7 @@ btnCompare.addEventListener('click', function () {
     apy(annualInterestRate1),
     loanTerm(loanTerm1),
   );
-  document.getElementById('totalCostOfLoanOne').innerHTML = totalCostOfLoan1;
+  document.getElementById('totalCostOfLoanOne').innerHTML = formatter.format(totalCostOfLoan1);
 
   console.log(
     'total mortgage cost for 1',
@@ -148,7 +152,7 @@ btnCompare.addEventListener('click', function () {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
-  document.getElementById('totalCostOfLoanTwo').innerHTML = totalCostOfLoan2;
+  document.getElementById('totalCostOfLoanTwo').innerHTML = formatter.format(totalCostOfLoan2);
 
   console.log(
     'total mortgage cost for 2',
