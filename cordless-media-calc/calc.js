@@ -56,6 +56,13 @@ const numberOfPayments2 = () => {
 };
 
 btnCompare.addEventListener('click', function () {
+  let monthlyPayment1;
+   monthlyPayment1 = calculateMonthlyPayment(
+      principal(loanAmount1),
+      apy(annualInterestRate1),
+      loanTerm(loanTerm1),
+   ),
+     document.getElementById("monthlyPaymentAmountOne").innerHTML = monthlyPayment1;
   console.log(
     'monthly payment for 1',
     calculateMonthlyPayment(
@@ -119,7 +126,7 @@ function calculateMonthlyPayment(principal, annualInterestRate, years) {
       Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
     (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
-  return monthlyPayment;
+  return monthlyPayment.toFixed(2);
 }
 
 // TODO: I don't think this formula is correct, the number seems too big
@@ -138,7 +145,7 @@ function calculateTotalInterest(
 
   const totalInterest = totalPayment - principal;
 
-  return totalInterest;
+  return totalInterest.toFixed(2);
 }
 function calculateTotalMortgageCost(
   loanAmount,
