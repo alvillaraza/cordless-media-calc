@@ -1,4 +1,5 @@
 // Form Elements
+let form = document.getElementById('formCalc')
 let downPayment1 = document.getElementById('downPayment1');
 let loanAmount1 = document.getElementById('loanAmount1');
 let loanTerm1 = document.getElementById('loanTerm1');
@@ -56,7 +57,11 @@ const numberOfPayments2 = () => {
 var options = { style: 'currency', currency: 'USD' };
 var formatter = new Intl.NumberFormat('en-US', options);
 
-btnCompare.addEventListener('click', function () {
+btnCompare.addEventListener('click', function (e) {
+  e.preventDefault();
+  formCalc.checkValidity();
+  formCalc.reportValidity();
+
   let monthlyPayment1;
   monthlyPayment1 = calculateMonthlyPayment(
     principal(loanAmount1),
@@ -110,14 +115,10 @@ btnCompare.addEventListener('click', function () {
   );
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
-  
-  const monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
-  document.getElementById('monthlyDifference').innerHTML = formatter.format(monthlyDiff);
 
-  const interestPaidDiff = calculateDifference(totalInterestPaid1, totalInterestPaid2);
-  document.getElementById('totalInterestPaidDiff').innerHTML = formatter.format(interestPaidDiff);
-
+   if (formCalc.checkValidity()) {
   document.getElementById('results-section').classList.remove('d-none');
+  }
 });
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
@@ -172,7 +173,7 @@ function calculateTotalMortgageCost(
   return totalCost.toFixed(2);
 }
 
-function calculateDifference (item1, item2) {
+function calculateDifference(item1, item2) {
   const difference = item1 - item2;
-  return difference.toFixed(2)
+  return difference.toFixed(2);
 }
