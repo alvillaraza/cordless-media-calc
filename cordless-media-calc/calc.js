@@ -18,6 +18,7 @@ let paymentFrequency2 = document.getElementById('paymentFrequency2');
 let btnCompare = document.getElementById('compareLoansButton');
 
 const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
+
 const apy = (annualInterestRateInput) =>
   parseFloat(annualInterestRateInput.value);
 const loanTerm = (loanTermInput) => parseInt(loanTermInput.value);
@@ -115,11 +116,16 @@ btnCompare.addEventListener('click', function (e) {
   );
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
+    console.log('princi', principal(loanAmount1))
+    console.log('princaweai', loanAmount1)
+    console.log('princaweai', loanAmount1.value)
+    console.log('apy', apy(annualInterestRate1))
 
    if (formCalc.checkValidity()) {
   document.getElementById('results-section').classList.remove('d-none');
   }
 });
+
 
 function calculateMonthlyPayment(principal, annualInterestRate, years) {
   const monthlyInterestRate = annualInterestRate / 100 / 12;
