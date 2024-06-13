@@ -78,8 +78,7 @@
                     type="number"
                     id="downPayment1"
                     class="form-control"
-                    placeholder="30,000"
-                    value="30,000"
+                    placeholder="Enter Down Payment Amount"
                     onfocus="this.placeholder = ''"
                     aria-label="Down Payment"
                     aria-describedby="downPayment1"
@@ -99,11 +98,11 @@
                     type="number"
                     id="loanAmount1"
                     class="form-control"
-                    placeholder="250,000"
-                    value="250,000"
+                    placeholder="Enter Loan Amount"
                     onfocus="this.placeholder = ''"
                     aria-label="Loan Amount"
                     aria-describedby="loanAmount1"
+                    required
                   />
                 </div>
               </fieldset>
@@ -114,19 +113,17 @@
                 >
 
                 <div class="input-group">
-                  <input
+                  <select
                     type="number"
                     id="loanTerm1"
                     class="form-control"
-                    min="15"
-                    max="30"
-                    increment="5"
-                    placeholder="15"
-                    step="5"
-                    value="15"
                     aria-label="Loan Term"
                     aria-describedby="loanTerm1"
-                  />
+                  >
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                  </select>
                   <div class="input-group-append">
                     <span class="input-group-text">years</span>
                   </div>
@@ -212,8 +209,7 @@
                     type="number"
                     id="downPayment2"
                     class="form-control"
-                    placeholder="30,000"
-                    value="30,000"
+                    placeholder="Enter Down Payment Amount"
                     onfocus="this.placeholder = ''"
                     aria-label="Down Payment"
                     aria-describedby="downPayment2"
@@ -233,11 +229,11 @@
                     type="number"
                     id="loanAmount2"
                     class="form-control"
-                    placeholder="250,000"
-                    value="250,000"
+                    placeholder="Enter Loan Amount"
                     onfocus="this.placeholder = ''"
                     aria-label="Loan Amount"
                     aria-describedby="loanAmount2"
+                    required
                   />
                 </div>
               </fieldset>
@@ -248,19 +244,20 @@
                 >
 
                 <div class="input-group">
-                  <input
+                  <select
                     type="number"
                     id="loanTerm2"
                     class="form-control"
-                    min="15"
-                    max="30"
-                    increment="5"
-                    placeholder="15"
-                    step="5"
-                    value="15"
                     aria-label="Loan Term"
                     aria-describedby="loanTerm2"
-                  />
+                  >
+                    <!-- <option disabled hidden selected>
+                      What type of loan is this?
+                    </option> -->
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                  </select>
                   <div class="input-group-append">
                     <span class="input-group-text">years</span>
                   </div>
