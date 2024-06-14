@@ -130,11 +130,24 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
 
+  const monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
+  document.getElementById('monthlyDifference').innerHTML =
+    formatter.format(monthlyDiff);
+
+  const interestPaidDiff = calculateDifference(
+    totalInterestPaid1,
+    totalInterestPaid2,
+  );
+   document.getElementById('totalInterestPaidDiff').innerHTML =
+     formatter.format(interestPaidDiff);
+  
+  const totalCostOfLoanDiff = calculateDifference(totalCostOfLoan1, totalCostOfLoan2);
+  document.getElementById('totalCostOfLoanDiff').innerHTML = formatter.format(totalCostOfLoanDiff);
+
   if (formCalc.checkValidity()) {
     document.getElementById('results-section').classList.remove('d-none');
   }
 });
-
 
 // TODO: I don't think this formula is correct, the number seems too big
 function calculateTotalInterest(
