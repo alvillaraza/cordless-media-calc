@@ -1,5 +1,4 @@
 // Form Elements
-let form = document.getElementById('formCalc')
 let downPayment1 = document.getElementById('downPayment1');
 let loanAmount1 = document.getElementById('loanAmount1');
 let loanTerm1 = document.getElementById('loanTerm1');
@@ -21,6 +20,10 @@ const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
 
 const apy = (annualInterestRateInput) =>
   parseFloat(annualInterestRateInput.value);
+const monthlyInterestRate = (annualInterestRateInput) => {
+  return apy(annualInterestRateInput) / 100 / 12;
+};
+
 const loanTerm = (loanTermInput) => parseInt(loanTermInput.value);
 
 let paymentFreq1;
@@ -28,6 +31,8 @@ paymentFrequency1.addEventListener('change', function () {
   paymentFreq1 = this.value;
 });
 const numberOfPayments1 = () => {
+  console.log('loanterm', loanTerm(loanTerm1));
+  console.log('paymentfreq', paymentFreq1);
   if (paymentFreq1 == 'Monthly') {
     return loanTerm(loanTerm1) * 12;
   } else if (paymentFreq1 == 'Bi-weekly') {
@@ -63,20 +68,28 @@ btnCompare.addEventListener('click', function (e) {
   formCalc.checkValidity();
   formCalc.reportValidity();
 
-  let monthlyPayment1;
-  monthlyPayment1 = calculateMonthlyPayment(
+  console.log(
+    'this',
     principal(loanAmount1),
-    apy(annualInterestRate1),
-    loanTerm(loanTerm1),
+    numberOfPayments1(),
+    monthlyInterestRate(annualInterestRate1),
   );
+
+  let monthlyPayment1;
+  monthlyPayment1 = monthlyPayment(
+    principal(loanAmount1),
+    numberOfPayments1(),
+    monthlyInterestRate(annualInterestRate1),
+  );
+
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
     formatter.format(monthlyPayment1);
 
   let monthlyPayment2;
-  monthlyPayment2 = calculateMonthlyPayment(
+  monthlyPayment2 = monthlyPayment(
     principal(loanAmount2),
-    apy(annualInterestRate2),
-    loanTerm(loanTerm2),
+    numberOfPayments2(),
+    monthlyInterestRate(annualInterestRate2),
   );
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
     formatter.format(monthlyPayment2);
@@ -116,30 +129,12 @@ btnCompare.addEventListener('click', function (e) {
   );
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
-    console.log('princi', principal(loanAmount1))
-    console.log('princaweai', loanAmount1)
-    console.log('princaweai', loanAmount1.value)
-    console.log('apy', apy(annualInterestRate1))
 
-   if (formCalc.checkValidity()) {
-  document.getElementById('results-section').classList.remove('d-none');
+  if (formCalc.checkValidity()) {
+    document.getElementById('results-section').classList.remove('d-none');
   }
 });
 
-
-function calculateMonthlyPayment(principal, annualInterestRate, years) {
-  const monthlyInterestRate = annualInterestRate / 100 / 12;
-
-  const numberOfPayments = years * 12;
-
-  const monthlyPayment =
-    (principal *
-      monthlyInterestRate *
-      Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
-    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-
-  return monthlyPayment.toFixed(2);
-}
 
 // TODO: I don't think this formula is correct, the number seems too big
 function calculateTotalInterest(
@@ -182,4 +177,8 @@ function calculateTotalMortgageCost(
 function calculateDifference(item1, item2) {
   const difference = item1 - item2;
   return difference.toFixed(2);
+}
+
+function monthlyPayment(p, n, i) {
+  return (p * i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
 }
