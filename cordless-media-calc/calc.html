@@ -9,7 +9,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&display=swap"
       rel="stylesheet"
@@ -495,33 +494,55 @@
           </header>
           <hr />
 
-          <div class="button-container">
-            <button id="allButton" class="btn btn-primary btn-lg px-3 py-1">
-              All
-            </button>
-            <button id="monthlyButton" class="btn btn-primary btn-lg px-3 py-1">
-              Monthly payment
-            </button>
-            <button
-              id="interestButton"
-              class="btn btn-primary btn-lg px-3 py-1"
-            >
-              Total interest
-            </button>
-            <button id="costButton" class="btn btn-primary btn-lg px-3 py-1">
-              Total cost
-            </button>
+          <div class="d-flex justify-content-center">
+          <button
+            type="button"
+            id="allButton"
+            data-bs-toggle="button"
+            autocomplete="off"
+            class="btn btn-primary btn-lg px-3 py-1"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            autocomplete="off"
+            id="monthlyButton"
+            data-bs-toggle="button"
+            class="btn btn-primary btn-lg px-3 py-1"
+          >
+            Monthly payment
+          </button>
+          <button
+            type="button"
+            autocomplete="off"
+            id="interestButton"
+            data-bs-toggle="button"
+            class="btn btn-primary btn-lg px-3 py-1"
+          >
+            Total interest
+          </button>
+
+          <button
+            type="button"
+            autocomplete="off"
+            id="costButton"
+            data-bs-toggle="button"
+            class="btn btn-primary btn-lg px-3 py-1"
+          >
+            Total cost
+          </button>
           </div>
 
-          <div>
-            <canvas id="monthlyChartJS" class=""></canvas>
+          <div class="my-5">
+            <canvas id="monthlyChartJS" class=""> </canvas>
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <div>
+          <div class="my-5">
             <canvas id="interestChartJS" class=""></canvas>
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <div>
+          <div class="my-5">
             <canvas id="loanCostChartJS" class=""></canvas>
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

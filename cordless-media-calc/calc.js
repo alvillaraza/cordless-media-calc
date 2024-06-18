@@ -189,6 +189,16 @@ btnCompare.addEventListener('click', function (e) {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              boxWidth: 0,
+              font: {
+                weight: 'bold',
+              },
+            },
+          },
+        },
         scales: {
           y: {
             beginAtZero: true,
@@ -218,6 +228,16 @@ btnCompare.addEventListener('click', function (e) {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              boxWidth: 0,
+              font: {
+                weight: 'bold',
+              },
+            },
+          },
+        },
         scales: {
           y: {
             beginAtZero: true,
@@ -247,6 +267,16 @@ btnCompare.addEventListener('click', function (e) {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              boxWidth: 0,
+              font: {
+                weight: 'bold',
+              },
+            },
+          },
+        },
         scales: {
           y: {
             beginAtZero: true,
