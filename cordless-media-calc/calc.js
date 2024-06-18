@@ -120,6 +120,7 @@ btnCompare.addEventListener('click', function (e) {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
+  console.log(totalCostOfLoan1)
 
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
@@ -162,12 +163,13 @@ btnCompare.addEventListener('click', function (e) {
     type: 'bar',
     data: {
       labels: [
-        'Monthly Payment 1',
-        'Monthly Payment 2',
+        `Loan 1 - ${formatter.format(monthlyPayment1)}`,
+        `Loan 2 - ${formatter.format(monthlyPayment2)}`,
+        
       ],
       datasets: [
         {
-          label: 'Comparisons',
+          label: 'Monthly Payment',
           data: [
             monthlyPayment1,
             monthlyPayment2,
@@ -197,8 +199,8 @@ btnCompare.addEventListener('click', function (e) {
     type: 'bar',
     data: {
       labels: [
-        'Total Interest Paid 1',
-        'Total Interest Paid 2',
+        `Total Interest Paid 1 - ${formatter.format(totalInterestPaid1)}`,
+        `Total Interest Paid 2 - ${formatter.format(totalInterestPaid2)}`,
       ],
       datasets: [
         {
@@ -224,6 +226,7 @@ btnCompare.addEventListener('click', function (e) {
 
   const costChart = document.getElementById('loanCostChart');
   let loanCostChart;
+
   if (loanCostChart) {
     loanCostChart.destroy();
   }
@@ -232,8 +235,8 @@ btnCompare.addEventListener('click', function (e) {
     type: 'bar',
     data: {
       labels: [
-        'Total Cost of Loan 1',
-        'Total Cost of Loan 2',
+      `Loan 1 - ${formatter.format(totalCostOfLoan1)}`,
+      `Loan 2 - ${formatter.format(totalCostOfLoan2)}`
       ],
       datasets: [
         {
