@@ -99,6 +99,7 @@
                     id="loanAmount1"
                     class="form-control"
                     placeholder="Enter Loan Amount"
+                    value="300000"
                     onfocus="this.placeholder = ''"
                     aria-label="Loan Amount"
                     aria-describedby="loanAmount1"
@@ -187,7 +188,7 @@
                     <option value="" disabled selected hidden>
                       How often are your payments?
                     </option>
-                    <option value="Monthly">Monthly</option>
+                    <option selected value="Monthly">Monthly</option>
                     <option value="Bi-weekly">Bi-weekly</option>
                     <option value="Weekly">Weekly</option>
                   </select>
@@ -232,6 +233,7 @@
                     id="loanAmount2"
                     class="form-control"
                     placeholder="Enter Loan Amount"
+                    value="400000"
                     onfocus="this.placeholder = ''"
                     aria-label="Loan Amount"
                     aria-describedby="loanAmount2"
@@ -322,7 +324,7 @@
                     <option value="" disabled hidden selected>
                       How often are your payments?
                     </option>
-                    <option value="Monthly">Monthly</option>
+                    <option selected value="Monthly">Monthly</option>
                     <option value="Bi-weekly">Bi-weekly</option>
                     <option value="Weekly">Weekly</option>
                   </select>
@@ -486,7 +488,7 @@
         </aside>
       </section>
       <!-- Charts -->
-      <!-- <div class="div-container">
+      <div class="div-container">
         <h2 class="gradient-text">Charts</h2>
 
         <h3>Comparisons</h3>
@@ -499,7 +501,15 @@
           <button class="comparisons-buttons">Total interest</button>
           <button class="comparisons-buttons">Total cost</button>
         </div>
-      </div> -->
+        
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+      </div>
+     
     </main>
   </body>
 

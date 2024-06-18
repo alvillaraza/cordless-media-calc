@@ -75,6 +75,7 @@ btnCompare.addEventListener('click', function (e) {
     numberOfPayments1(),
     monthlyInterestRate(annualInterestRate1),
   );
+  console.log('monthlypayment11111', monthlyPayment1);
 
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
     formatter.format(monthlyPayment1);
@@ -149,6 +150,43 @@ btnCompare.addEventListener('click', function (e) {
   if (formCalc.checkValidity()) {
     document.getElementById('results-section').classList.remove('d-none');
   }
+
+  // Chart
+  const ctx = document.getElementById('myChart');
+  let myChart;
+
+  if (myChart) {
+    myChart.destroy();
+  }
+
+  myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [
+        'Monthly Payment 1',
+        'Monthly Payment 2',
+        'Total Interest Paid 1',
+        'Total Interest Paid 2',
+        'Total Cost of Loan 1',
+        'Total Cost of Loan 2',
+      ],
+      datasets: [
+        {
+          label: 'Comparisons',
+          data: [monthlyPayment1, monthlyPayment2, totalInterestPaid1, totalInterestPaid2, totalCostOfLoan1, totalCostOfLoan2],
+          backgroundColor: ['#206fff', '#08b7ff'],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 });
 
 // TODO: I don't think this formula is correct, the number seems too big
