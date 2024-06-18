@@ -255,7 +255,6 @@
                     aria-label="Loan Term"
                     aria-describedby="loanTerm2"
                   >
-                    </option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
@@ -486,38 +485,39 @@
           >
         </aside>
 
-      <!-- Charts -->
-      <div class="div-container">
+        <!-- Charts -->
         <h2 class="gradient-text">Charts</h2>
 
         <h3>Comparisons</h3>
 
-        <hr />
-
         <div class="button-container">
-          <button id="allButton" class="comparisons-buttons-all">All</button>
-          <button id="monthlyButton" class="comparisons-buttons-monthly">Monthly payment</button>
-          <button id="interestButton" class="comparisons-buttons-interest">Total interest</button>
-          <button id="costButton" class="comparisons-buttons-cost">Total cost</button>
+          <button id="allButton" class="btn btn-primary btn-lg px-3 py-1">
+            All
+          </button>
+          <button id="monthlyButton" class="btn btn-primary btn-lg px-3 py-1">
+            Monthly payment
+          </button>
+          <button id="interestButton" class="btn btn-primary btn-lg px-3 py-1">
+            Total interest
+          </button>
+          <button id="costButton" class="btn btn-primary btn-lg px-3 py-1">
+            Total cost
+          </button>
         </div>
-        
+
         <div>
           <canvas id="monthlyChartJS" class=""></canvas>
-        </div>     
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
-      </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <div>
           <canvas id="interestChartJS" class=""></canvas>
-        </div>     
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
-      </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <div>
           <canvas id="loanCostChartJS" class=""></canvas>
-        </div>     
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
-      </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       </section>
-     
     </main>
   </body>
 
