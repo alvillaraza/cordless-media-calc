@@ -14,6 +14,10 @@ let loanType2 = document.getElementById('loanType2');
 let rate2 = document.getElementById('rate2');
 let paymentFrequency2 = document.getElementById('paymentFrequency2');
 let btnCompare = document.getElementById('compareLoansButton');
+let btnAll = document.getElementById('allButton');
+let btnMonthly = document.getElementById('monthlyButton');
+let btnInterest = document.getElementById('interestButton');
+let btnCost = document.getElementById('costButton');
 
 const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
 
@@ -72,7 +76,7 @@ btnCompare.addEventListener('click', function (e) {
     totalInterestPaid2,
     totalCostOfLoan1,
     totalCostOfLoan2;
-  
+
   monthlyPayment1 = monthlyPayment(
     principal(loanAmount1),
     numberOfPayments1(),
@@ -120,7 +124,7 @@ btnCompare.addEventListener('click', function (e) {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
-  console.log(totalCostOfLoan1)
+  console.log(totalCostOfLoan1);
 
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
@@ -152,112 +156,129 @@ btnCompare.addEventListener('click', function (e) {
   // Chart
   // Chart
   // Chart
-  const monthChart = document.getElementById('monthlyChart');
-  let monthlyChart;
+  const monthChart = document.getElementById('monthlyChartJS');
+  let monthlyChart = null;
 
-  if (monthlyChart) {
-    monthlyChart.destroy();
-  }
-
-  monthlyChart = new Chart(monthChart, {
-    type: 'bar',
-    data: {
-      labels: [
-        `Loan 1 - ${formatter.format(monthlyPayment1)}`,
-        `Loan 2 - ${formatter.format(monthlyPayment2)}`,
-        
-      ],
-      datasets: [
-        {
-          label: 'Monthly Payment',
-          data: [
-            monthlyPayment1,
-            monthlyPayment2,
-          ],
-          backgroundColor: ['#206fff', '#08b7ff'],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-
-  const intChart = document.getElementById('interestChart');
+  const intChart = document.getElementById('interestChartJS');
   let interestChart;
 
-  if (interestChart) {
-    interestChart.destroy();
-  }
-
-  interestChart = new Chart(intChart, {
-    type: 'bar',
-    data: {
-      labels: [
-        `Total Interest Paid 1 - ${formatter.format(totalInterestPaid1)}`,
-        `Total Interest Paid 2 - ${formatter.format(totalInterestPaid2)}`,
-      ],
-      datasets: [
-        {
-          label: 'Total Interest Paid',
-          data: [
-            totalInterestPaid1,
-            totalInterestPaid2,
-          ],
-          backgroundColor: ['#206fff', '#08b7ff'],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-
-
-  const costChart = document.getElementById('loanCostChart');
+  const costChart = document.getElementById('loanCostChartJS');
   let loanCostChart;
 
-  if (loanCostChart) {
-    loanCostChart.destroy();
-  }
+  generateChart();
+  function generateChart() {
+    console.log('monthly', monthlyChart);
+    if (monthlyChart) {
+      monthlyChart.destroy();
+    }
 
-  loanCostChart = new Chart(costChart, {
-    type: 'bar',
-    data: {
-      labels: [
-      `Loan 1 - ${formatter.format(totalCostOfLoan1)}`,
-      `Loan 2 - ${formatter.format(totalCostOfLoan2)}`
-      ],
-      datasets: [
-        {
-          label: 'Total Cost of Loan',
-          data: [
-            totalCostOfLoan1,
-            totalCostOfLoan2,
-          ],
-          backgroundColor: ['#206fff', '#08b7ff'],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+    monthlyChart = new Chart(monthChart, {
+      type: 'bar',
+      data: {
+        labels: [
+          `Loan 1 - ${formatter.format(monthlyPayment1)}`,
+          `Loan 2 - ${formatter.format(monthlyPayment2)}`,
+        ],
+        datasets: [
+          {
+            label: 'Monthly Payment',
+            data: [monthlyPayment1, monthlyPayment2],
+            backgroundColor: ['#206fff', '#08b7ff'],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
-  });
+    });
+
+    if (interestChart) {
+      interestChart.destroy();
+    }
+
+    interestChart = new Chart(intChart, {
+      type: 'bar',
+      data: {
+        labels: [
+          `Total Interest Paid 1 - ${formatter.format(totalInterestPaid1)}`,
+          `Total Interest Paid 2 - ${formatter.format(totalInterestPaid2)}`,
+        ],
+        datasets: [
+          {
+            label: 'Total Interest Paid',
+            data: [totalInterestPaid1, totalInterestPaid2],
+            backgroundColor: ['#206fff', '#08b7ff'],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    if (loanCostChart) {
+      loanCostChart.destroy();
+    }
+
+    loanCostChart = new Chart(costChart, {
+      type: 'bar',
+      data: {
+        labels: [
+          `Loan 1 - ${formatter.format(totalCostOfLoan1)}`,
+          `Loan 2 - ${formatter.format(totalCostOfLoan2)}`,
+        ],
+        datasets: [
+          {
+            label: 'Total Cost of Loan',
+            data: [totalCostOfLoan1, totalCostOfLoan2],
+            backgroundColor: ['#206fff', '#08b7ff'],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+});
+
+// TODO need to figuer out toggling of this
+// TODO Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'monthlyChartJS' can be reused.
+
+btnMonthly.addEventListener('click', function (e) {
+  // e.preventDefault();
+  document.getElementById('monthlyChartJS').classList.add('d-block');
+  document.getElementById('interestChartJS').classList.add('d-none');
+  document.getElementById('loanCostChartJS').classList.add('d-none');
+});
+
+btnInterest.addEventListener('click', function (e) {
+  // e.preventDefault();
+  document.getElementById('monthlyChartJS').classList.add('d-none');
+  document.getElementById('interestChartJS').classList.add('d-block');
+  document.getElementById('loanCostChartJS').classList.add('d-none');
+});
+
+btnCost.addEventListener('click', function (e) {
+  // e.preventDefault();
+  document.getElementById('monthlyChartJS').classList.add('d-none');
+  document.getElementById('interestChartJS').classList.add('d-none');
+  document.getElementById('loanCostChartJS').classList.add('d-block');
 });
 
 // TODO: I don't think this formula is correct, the number seems too big

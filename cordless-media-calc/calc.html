@@ -188,7 +188,7 @@
                     <option value="" disabled selected hidden>
                       How often are your payments?
                     </option>
-                    <option selected value="Monthly">Monthly</option>
+                    <option value="Monthly">Monthly</option>
                     <option value="Bi-weekly">Bi-weekly</option>
                     <option value="Weekly">Weekly</option>
                   </select>
@@ -324,7 +324,7 @@
                     <option value="" disabled hidden selected>
                       How often are your payments?
                     </option>
-                    <option selected value="Monthly">Monthly</option>
+                    <option value="Monthly">Monthly</option>
                     <option value="Bi-weekly">Bi-weekly</option>
                     <option value="Weekly">Weekly</option>
                   </select>
@@ -334,7 +334,6 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <!-- TDDO: need a message for filling out the form or need to disable this button if the necessary inputs are not filled out -->
             <button
               id="compareLoansButton"
               class="btn btn-primary btn-lg px-5 py-3"
@@ -486,6 +485,7 @@
             specimen book.</small
           >
         </aside>
+
       <!-- Charts -->
       <div class="div-container">
         <h2 class="gradient-text">Charts</h2>
@@ -495,24 +495,24 @@
         <hr />
 
         <div class="button-container">
-          <button class="comparisons-buttons">All</button>
-          <button class="comparisons-buttons">Monthly payment</button>
-          <button class="comparisons-buttons">Total interest</button>
-          <button class="comparisons-buttons">Total cost</button>
+          <button id="allButton" class="comparisons-buttons-all">All</button>
+          <button id="monthlyButton" class="comparisons-buttons-monthly">Monthly payment</button>
+          <button id="interestButton" class="comparisons-buttons-interest">Total interest</button>
+          <button id="costButton" class="comparisons-buttons-cost">Total cost</button>
         </div>
         
         <div>
-          <canvas id="monthlyChart"></canvas>
+          <canvas id="monthlyChartJS" class=""></canvas>
         </div>     
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
       </div>
         <div>
-          <canvas id="interestChart"></canvas>
+          <canvas id="interestChartJS" class=""></canvas>
         </div>     
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
       </div>
         <div>
-          <canvas id="loanCostChart"></canvas>
+          <canvas id="loanCostChartJS" class=""></canvas>
         </div>     
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>      
       </div>
