@@ -13,7 +13,6 @@ let annualInterestRate2 = document.getElementById('annualInterestRate2');
 let loanType2 = document.getElementById('loanType2');
 let rate2 = document.getElementById('rate2');
 let paymentFrequency2 = document.getElementById('paymentFrequency2');
-
 let btnCompare = document.getElementById('compareLoansButton');
 
 const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
@@ -32,8 +31,6 @@ paymentFrequency1.addEventListener('change', function () {
 });
 
 const numberOfPayments1 = () => {
-  console.log('loanterm', loanTerm(loanTerm1));
-  console.log('paymentfreq', paymentFreq1);
   if (paymentFreq1 == 'Monthly') {
     return loanTerm(loanTerm1) * 12;
   } else if (paymentFreq1 == 'Bi-weekly') {
@@ -69,18 +66,22 @@ btnCompare.addEventListener('click', function (e) {
   formCalc.checkValidity();
   formCalc.reportValidity();
 
-  let monthlyPayment1;
+  let monthlyPayment1,
+    monthlyPayment2,
+    totalInterestPaid1,
+    totalInterestPaid2,
+    totalCostOfLoan1,
+    totalCostOfLoan2;
+  
   monthlyPayment1 = monthlyPayment(
     principal(loanAmount1),
     numberOfPayments1(),
     monthlyInterestRate(annualInterestRate1),
   );
-  console.log('monthlypayment11111', monthlyPayment1);
 
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
     formatter.format(monthlyPayment1);
 
-  let monthlyPayment2;
   monthlyPayment2 = monthlyPayment(
     principal(loanAmount2),
     numberOfPayments2(),
@@ -90,7 +91,6 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
     formatter.format(monthlyPayment2);
 
-  let totalInterestPaid1;
   totalInterestPaid1 = calculateTotalInterest(
     principal(loanAmount1),
     apy(annualInterestRate1),
@@ -99,7 +99,6 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('totalInterestPaidOne').innerHTML =
     formatter.format(totalInterestPaid1);
 
-  let totalInterestPaid2;
   totalInterestPaid2 = calculateTotalInterest(
     principal(loanAmount2),
     apy(annualInterestRate2),
@@ -108,7 +107,6 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('totalInterestPaidTwo').innerHTML =
     formatter.format(totalInterestPaid2);
 
-  let totalCostOfLoan1;
   totalCostOfLoan1 = calculateTotalMortgageCost(
     principal(loanAmount1),
     apy(annualInterestRate1),
@@ -117,7 +115,6 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('totalCostOfLoanOne').innerHTML =
     formatter.format(totalCostOfLoan1);
 
-  let totalCostOfLoan2;
   totalCostOfLoan2 = calculateTotalMortgageCost(
     principal(loanAmount2),
     apy(annualInterestRate2),
@@ -152,28 +149,99 @@ btnCompare.addEventListener('click', function (e) {
   }
 
   // Chart
-  const ctx = document.getElementById('myChart');
-  let myChart;
+  // Chart
+  // Chart
+  const monthChart = document.getElementById('monthlyChart');
+  let monthlyChart;
 
-  if (myChart) {
-    myChart.destroy();
+  if (monthlyChart) {
+    monthlyChart.destroy();
   }
 
-  myChart = new Chart(ctx, {
+  monthlyChart = new Chart(monthChart, {
     type: 'bar',
     data: {
       labels: [
         'Monthly Payment 1',
         'Monthly Payment 2',
+      ],
+      datasets: [
+        {
+          label: 'Comparisons',
+          data: [
+            monthlyPayment1,
+            monthlyPayment2,
+          ],
+          backgroundColor: ['#206fff', '#08b7ff'],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  const intChart = document.getElementById('interestChart');
+  let interestChart;
+
+  if (interestChart) {
+    interestChart.destroy();
+  }
+
+  interestChart = new Chart(intChart, {
+    type: 'bar',
+    data: {
+      labels: [
         'Total Interest Paid 1',
         'Total Interest Paid 2',
+      ],
+      datasets: [
+        {
+          label: 'Total Interest Paid',
+          data: [
+            totalInterestPaid1,
+            totalInterestPaid2,
+          ],
+          backgroundColor: ['#206fff', '#08b7ff'],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+
+  const costChart = document.getElementById('loanCostChart');
+  let loanCostChart;
+  if (loanCostChart) {
+    loanCostChart.destroy();
+  }
+
+  loanCostChart = new Chart(costChart, {
+    type: 'bar',
+    data: {
+      labels: [
         'Total Cost of Loan 1',
         'Total Cost of Loan 2',
       ],
       datasets: [
         {
-          label: 'Comparisons',
-          data: [monthlyPayment1, monthlyPayment2, totalInterestPaid1, totalInterestPaid2, totalCostOfLoan1, totalCostOfLoan2],
+          label: 'Total Cost of Loan',
+          data: [
+            totalCostOfLoan1,
+            totalCostOfLoan2,
+          ],
           backgroundColor: ['#206fff', '#08b7ff'],
           borderWidth: 1,
         },
