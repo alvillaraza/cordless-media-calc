@@ -30,6 +30,7 @@ let paymentFreq1;
 paymentFrequency1.addEventListener('change', function () {
   paymentFreq1 = this.value;
 });
+
 const numberOfPayments1 = () => {
   console.log('loanterm', loanTerm(loanTerm1));
   console.log('paymentfreq', paymentFreq1);
@@ -68,13 +69,6 @@ btnCompare.addEventListener('click', function (e) {
   formCalc.checkValidity();
   formCalc.reportValidity();
 
-  console.log(
-    'this',
-    principal(loanAmount1),
-    numberOfPayments1(),
-    monthlyInterestRate(annualInterestRate1),
-  );
-
   let monthlyPayment1;
   monthlyPayment1 = monthlyPayment(
     principal(loanAmount1),
@@ -91,6 +85,7 @@ btnCompare.addEventListener('click', function (e) {
     numberOfPayments2(),
     monthlyInterestRate(annualInterestRate2),
   );
+
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
     formatter.format(monthlyPayment2);
 
@@ -127,6 +122,7 @@ btnCompare.addEventListener('click', function (e) {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
+
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
 
@@ -138,11 +134,17 @@ btnCompare.addEventListener('click', function (e) {
     totalInterestPaid1,
     totalInterestPaid2,
   );
-   document.getElementById('totalInterestPaidDiff').innerHTML =
-     formatter.format(interestPaidDiff);
-  
-  const totalCostOfLoanDiff = calculateDifference(totalCostOfLoan1, totalCostOfLoan2);
-  document.getElementById('totalCostOfLoanDiff').innerHTML = formatter.format(totalCostOfLoanDiff);
+
+  document.getElementById('totalInterestPaidDiff').innerHTML =
+    formatter.format(interestPaidDiff);
+
+  const totalCostOfLoanDiff = calculateDifference(
+    totalCostOfLoan1,
+    totalCostOfLoan2,
+  );
+
+  document.getElementById('totalCostOfLoanDiff').innerHTML =
+    formatter.format(totalCostOfLoanDiff);
 
   if (formCalc.checkValidity()) {
     document.getElementById('results-section').classList.remove('d-none');
