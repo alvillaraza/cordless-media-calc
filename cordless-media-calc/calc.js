@@ -19,6 +19,7 @@ let btnMonthly = document.getElementById('monthlyButton');
 let btnInterest = document.getElementById('interestButton');
 let btnCost = document.getElementById('costButton');
 
+const downPayment = (downPaymentInput) => parseFloat(downPaymentInput.value);
 const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
 
 const apy = (annualInterestRateInput) =>
@@ -95,18 +96,22 @@ btnCompare.addEventListener('click', function (e) {
   document.getElementById('monthlyPaymentAmountTwo').innerHTML =
     formatter.format(monthlyPayment2);
 
-  totalInterestPaid1 = calculateTotalInterest(
+  totalInterestPaid1 = calculateTotalInterestPaid(
+    downPayment(downPayment1),
     principal(loanAmount1),
+    loanTerm(loanTerm1),
     apy(annualInterestRate1),
-    numberOfPayments1(),
+    paymentFreq1,
   );
   document.getElementById('totalInterestPaidOne').innerHTML =
     formatter.format(totalInterestPaid1);
 
-  totalInterestPaid2 = calculateTotalInterest(
+  totalInterestPaid2 = calculateTotalInterestPaid(
+    downPayment(downPayment2),
     principal(loanAmount2),
+    loanTerm(loanTerm2),
     apy(annualInterestRate2),
-    numberOfPayments2(),
+    paymentFreq2,
   );
   document.getElementById('totalInterestPaidTwo').innerHTML =
     formatter.format(totalInterestPaid2);
@@ -314,24 +319,6 @@ btnCost.addEventListener('click', function (e) {
   document.getElementById('loanCostChartJS').classList.add('d-block');
 });
 
-// TODO: I don't think this formula is correct, the number seems too big
-function calculateTotalInterest(
-  principal,
-  annualInterestRate,
-  numberOfPayments,
-) {
-  const monthlyInterestRate = annualInterestRate / 12 / 100;
-
-  const monthlyPayment =
-    (principal * monthlyInterestRate) /
-    (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
-
-  const totalPayment = monthlyPayment * numberOfPayments;
-
-  const totalInterest = totalPayment - principal;
-
-  return totalInterest.toFixed(2);
-}
 function calculateTotalMortgageCost(
   loanAmount,
   annualInterestRate,
@@ -359,4 +346,54 @@ function calculateDifference(item1, item2) {
 
 function monthlyPayment(p, n, i) {
   return (p * i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+}
+
+function calculateTotalInterestPaid(
+  downPayment,
+  loanAmount,
+  loanTerm,
+  interestRate,
+  paymentFrequency,
+) {
+  const principal = loanAmount - downPayment;
+
+  const annualInterestRate = interestRate / 100;
+
+  let paymentsPerYear;
+
+  switch (paymentFrequency.toLowerCase()) {
+    case 'monthly':
+      paymentsPerYear = 12;
+
+      break;
+
+    case 'bi-weekly':
+      paymentsPerYear = 26;
+
+      break;
+
+    case 'weekly':
+      paymentsPerYear = 52;
+
+      break;
+
+    default:
+      console.log(
+        "Invalid payment frequency. Use 'monthly', 'bi-weekly', or 'weekly'.",
+      );
+  }
+
+  const totalPayments = loanTerm * paymentsPerYear;
+
+  const periodicInterestRate = annualInterestRate / paymentsPerYear;
+
+  const monthlyPayment =
+    (principal * periodicInterestRate) /
+    (1 - Math.pow(1 + periodicInterestRate, -totalPayments));
+
+  const totalAmountPaid = monthlyPayment * totalPayments;
+
+  const totalInterestPaid = totalAmountPaid - principal;
+
+  return totalInterestPaid;
 }
