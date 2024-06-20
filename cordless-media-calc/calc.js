@@ -295,27 +295,21 @@ btnCompare.addEventListener('click', function (e) {
 });
 
 // TODO Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'monthlyChartJS' can be reused.
-// $('allButton').input('toggle');
-// $('monthlyButton').input('toggle');
 
 $("#show-all").on("click", function () {
   console.log('clicked all')
   $(this).addClass("active").parent("li").siblings().find("a").removeClass("active");
   $(".tab-pane").removeClass("fade").addClass("active").addClass("show");
 });
+
 $('#pills-tab a').not('#show-all').on('click', function (e) {
   console.log('clicked pills')
   e.preventDefault()
-  $(this).tab('show')
+  $('.nav-link').removeClass('active')
+  $(this).tab('show').addClass('active');
 
 });
-$('#all-button').on('click', function (e) {
-  console.log('clicked all')
-  e.preventDefault();
-  $('#monthlyChartJS2').tab('show');
-  $('#interestChartJS2').tab('show');
-  $('#locanCostChartJS2').tab('show');
-})
+
 function calculateTotalMortgageCost(
   loanAmount,
   annualInterestRate,
