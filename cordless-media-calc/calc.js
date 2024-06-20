@@ -21,7 +21,6 @@ let btnCost = document.getElementById('costButton');
 
 const downPayment = (downPaymentInput) => parseFloat(downPaymentInput.value);
 const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
-
 const apy = (annualInterestRateInput) =>
   parseFloat(annualInterestRateInput.value);
 const monthlyInterestRate = (annualInterestRateInput) => {
@@ -295,30 +294,28 @@ btnCompare.addEventListener('click', function (e) {
   }
 });
 
-// TODO need to figuer out toggling of this
 // TODO Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'monthlyChartJS' can be reused.
+// $('allButton').input('toggle');
+// $('monthlyButton').input('toggle');
 
-btnMonthly.addEventListener('click', function (e) {
-  // e.preventDefault();
-  document.getElementById('monthlyChartJS').classList.add('d-block');
-  document.getElementById('interestChartJS').classList.add('d-none');
-  document.getElementById('loanCostChartJS').classList.add('d-none');
+$("#show-all").on("click", function () {
+  console.log('clicked all')
+  $(this).addClass("active").parent("li").siblings().find("a").removeClass("active");
+  $(".tab-pane").removeClass("fade").addClass("active").addClass("show");
 });
+$('#pills-tab a').not('#show-all').on('click', function (e) {
+  console.log('clicked pills')
+  e.preventDefault()
+  $(this).tab('show')
 
-btnInterest.addEventListener('click', function (e) {
-  // e.preventDefault();
-  document.getElementById('monthlyChartJS').classList.add('d-none');
-  document.getElementById('interestChartJS').classList.add('d-block');
-  document.getElementById('loanCostChartJS').classList.add('d-none');
 });
-
-btnCost.addEventListener('click', function (e) {
-  // e.preventDefault();
-  document.getElementById('monthlyChartJS').classList.add('d-none');
-  document.getElementById('interestChartJS').classList.add('d-none');
-  document.getElementById('loanCostChartJS').classList.add('d-block');
-});
-
+$('#all-button').on('click', function (e) {
+  console.log('clicked all')
+  e.preventDefault();
+  $('#monthlyChartJS2').tab('show');
+  $('#interestChartJS2').tab('show');
+  $('#locanCostChartJS2').tab('show');
+})
 function calculateTotalMortgageCost(
   loanAmount,
   annualInterestRate,

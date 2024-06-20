@@ -20,6 +20,8 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <style>
       h1,
@@ -79,7 +81,7 @@
                     class="form-control"
                     placeholder="Enter Down Payment Amount"
                     onfocus="this.placeholder = ''"
-                     value='30000'
+                    value="30000"
                     aria-label="Down Payment"
                     aria-describedby="downPayment1"
                     required
@@ -214,7 +216,7 @@
                     id="downPayment2"
                     class="form-control"
                     placeholder="Enter Down Payment Amount"
-                    value='30000'
+                    value="30000"
                     onfocus="this.placeholder = ''"
                     aria-label="Down Payment"
                     aria-describedby="downPayment2"
@@ -498,58 +500,82 @@
           </header>
           <hr />
 
-          <div class="d-flex">
-          <button
-            type="button"
-            id="allButton"
-            data-bs-toggle="button"
-            autocomplete="off"
-            class="btn btn-primary btn-lg px-3 py-1"
-          >
-            All
-          </button>
-          <button
-            type="button"
-            autocomplete="off"
-            id="monthlyButton"
-            data-bs-toggle="button"
-            class="btn btn-primary btn-lg px-3 py-1"
-          >
-            Monthly payment
-          </button>
-          <button
-            type="button"
-            autocomplete="off"
-            id="interestButton"
-            data-bs-toggle="button"
-            class="btn btn-primary btn-lg px-3 py-1"
-          >
-            Total interest
-          </button>
+          
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="show-all"
+                data-toggle="pill"
+                href="#"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+                >All</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-profile-tab"
+                data-toggle="pill"
+                href="#monthlyChartJS2"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+                >Monthly</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-contact-tab"
+                data-toggle="pill"
+                href="#interestChartJS2"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+                >Interest</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-contact-tab"
+                data-toggle="pill"
+                href="#loanCostChartJS2"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+                >Total Cost</a
+              >
+            </li>
+          </ul>
 
-          <button
-            type="button"
-            autocomplete="off"
-            id="costButton"
-            data-bs-toggle="button"
-            class="btn btn-primary btn-lg px-3 py-1"
-          >
-            Total cost
-          </button>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              id="monthlyChartJS2"
+              class="my-5 tab-pane fade show active"
+            >
+              <canvas id="monthlyChartJS" class=""> </canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <div
+              id="interestChartJS2"
+    
+              class="my-5 tab-pane fade show active"
+            >
+              <canvas id="interestChartJS" class=""></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <div
+              id="loanCostChartJS2"
+  
+              class="my-5 tab-pane fade show active"
+            >
+              <canvas id="loanCostChartJS" class=""></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           </div>
-
-          <div class="my-5">
-            <canvas id="monthlyChartJS" class=""> </canvas>
-          </div>
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <div class="my-5">
-            <canvas id="interestChartJS" class=""></canvas>
-          </div>
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <div class="my-5">
-            <canvas id="loanCostChartJS" class=""></canvas>
-          </div>
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </section>
       </section>
     </main>
