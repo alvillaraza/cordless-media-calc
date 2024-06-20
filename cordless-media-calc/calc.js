@@ -19,15 +19,14 @@ let btnMonthly = document.getElementById('monthlyButton');
 let btnInterest = document.getElementById('interestButton');
 let btnCost = document.getElementById('costButton');
 
-const downPayment = (downPaymentInput) => parseFloat(downPaymentInput.value);
-const principal = (loanAmountInput) => parseFloat(loanAmountInput.value);
+const downPayment = (downPaymentInput) => parseFloat(downPaymentInput.value) || 30000;
+const principal = (loanAmountInput) => parseFloat(loanAmountInput.value) || 400000;
 const apy = (annualInterestRateInput) =>
-  parseFloat(annualInterestRateInput.value);
+  parseFloat(annualInterestRateInput.value) || 7.25;
+const loanTerm = (loanTermInput) => parseInt(loanTermInput.value) || 15;
 const monthlyInterestRate = (annualInterestRateInput) => {
   return apy(annualInterestRateInput) / 100 / 12;
 };
-
-const loanTerm = (loanTermInput) => parseInt(loanTermInput.value);
 
 let paymentFreq1;
 paymentFrequency1.addEventListener('change', function () {
@@ -128,7 +127,6 @@ btnCompare.addEventListener('click', function (e) {
     apy(annualInterestRate2),
     loanTerm(loanTerm2),
   );
-  console.log(totalCostOfLoan1);
 
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
@@ -160,20 +158,27 @@ btnCompare.addEventListener('click', function (e) {
   // Chart
   // Chart
   // Chart
-  const monthChart = document.getElementById('monthlyChartJS');
-  let monthlyChart = null;
-
-  const intChart = document.getElementById('interestChartJS');
+  let monthlyChart;
   let interestChart;
-
-  const costChart = document.getElementById('loanCostChartJS');
   let loanCostChart;
 
-  generateChart();
+  let chartStatusMonthly = Chart.getChart('monthlyChartJS');
+  let chartStatusInterest = Chart.getChart('interestChartJS');
+  let chartStatusCost = Chart.getChart('loanCostChartJS');
+
+  const monthChart = document.getElementById('monthlyChartJS');
+  const intChart = document.getElementById('interestChartJS');
+  const costChart = document.getElementById('loanCostChartJS');
+
   function generateChart() {
-    console.log('monthly', monthlyChart);
-    if (monthlyChart) {
-      monthlyChart.destroy();
+    if (chartStatusMonthly != undefined) {
+      chartStatusMonthly.destroy();
+    }
+    if (chartStatusInterest != undefined) {
+      chartStatusInterest.destroy();
+    }
+    if (chartStatusCost != undefined) {
+      chartStatusCost.destroy();
     }
 
     monthlyChart = new Chart(monthChart, {
@@ -212,10 +217,6 @@ btnCompare.addEventListener('click', function (e) {
       },
     });
 
-    if (interestChart) {
-      interestChart.destroy();
-    }
-
     interestChart = new Chart(intChart, {
       type: 'bar',
       data: {
@@ -251,10 +252,6 @@ btnCompare.addEventListener('click', function (e) {
         },
       },
     });
-
-    if (loanCostChart) {
-      loanCostChart.destroy();
-    }
 
     loanCostChart = new Chart(costChart, {
       type: 'bar',
@@ -292,23 +289,31 @@ btnCompare.addEventListener('click', function (e) {
       },
     });
   }
+
+  generateChart();
 });
 
 // TODO Canvas is already in use. Chart with ID '0' must be destroyed before the canvas with ID 'monthlyChartJS' can be reused.
 
-$("#show-all").on("click", function () {
-  console.log('clicked all')
-  $(this).addClass("active").parent("li").siblings().find("a").removeClass("active");
-  $(".tab-pane").removeClass("fade").addClass("active").addClass("show");
+$('#show-all').on('click', function () {
+  console.log('clicked all');
+  $(this)
+    .addClass('active')
+    .parent('li')
+    .siblings()
+    .find('a')
+    .removeClass('active');
+  $('.tab-pane').removeClass('fade').addClass('active').addClass('show');
 });
 
-$('#pills-tab a').not('#show-all').on('click', function (e) {
-  console.log('clicked pills')
-  e.preventDefault()
-  $('.nav-link').removeClass('active')
-  $(this).tab('show').addClass('active');
-
-});
+$('#pills-tab a')
+  .not('#show-all')
+  .on('click', function (e) {
+    console.log('clicked pills');
+    e.preventDefault();
+    $('.nav-link').removeClass('active');
+    $(this).tab('show').addClass('active');
+  });
 
 function calculateTotalMortgageCost(
   loanAmount,
