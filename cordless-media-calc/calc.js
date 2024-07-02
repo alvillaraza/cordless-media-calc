@@ -6,7 +6,7 @@ let annualInterestRate1 = document.getElementById('annualInterestRate1');
 let loanType1 = document.getElementById('loanType1');
 let rate1 = document.getElementById('rate1');
 let paymentFrequency1 = document.getElementById('paymentFrequency1');
-console.log('2', paymentFrequency1)
+console.log('2', paymentFrequency1);
 
 let downPayment2 = document.getElementById('downPayment2');
 let loanAmount2 = document.getElementById('loanAmount2');
@@ -35,9 +35,9 @@ const monthlyInterestRate = (annualInterestRateInput) => {
 };
 
 let paymentFreq1;
-console.log('1', paymentFreq1)
+console.log('1', paymentFreq1);
 paymentFrequency1.addEventListener('change', function () {
-  console.log('3', this.value)
+  console.log('3', this.value);
   paymentFreq1 = this.value;
 });
 
@@ -168,16 +168,19 @@ btnCompare.addEventListener('click', function (e) {
     paymentFreq2,
   );
 
-  // monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
-  // document.getElementById('monthlyDifference').innerHTML =
-  //   formatter.format(monthlyDiff);
+  monthlyDiff = calculateDifference(monthlyPayment1, monthlyPayment2);
+  document.getElementById('monthlyDifference').innerHTML =
+    formatter.format(monthlyDiff);
+  console.log('mon',monthlyPayment1,monthlyPayment2, monthlyDiff)
 
-  // interestPaidDiff = calculateDifference(
-  //   totalInterestPaid1,
-  //   totalInterestPaid2,
-  // );
+  interestPaidDiff = calculateDifference(
+    totalInterestPaid1,
+    totalInterestPaid2,
+  );
+  console.log(totalInterestPaid1,
+    totalInterestPaid2, interestPaidDiff)
 
-  // totalCostOfLoanDiff = calculateDifference(totalCostOfLoan1, totalCostOfLoan2);
+  totalCostOfLoanDiff = calculateDifference(totalCostOfLoan1, totalCostOfLoan2);
 
   document.getElementById('monthlyPaymentAmountOne').innerHTML =
     formatter.format(monthlyPayment1);
@@ -191,10 +194,10 @@ btnCompare.addEventListener('click', function (e) {
     formatter.format(totalCostOfLoan1);
   document.getElementById('totalCostOfLoanTwo').innerHTML =
     formatter.format(totalCostOfLoan2);
-  // document.getElementById('totalInterestPaidDiff').innerHTML =
-  //   formatter.format(interestPaidDiff);
-  // document.getElementById('totalCostOfLoanDiff').innerHTML =
-  //   formatter.format(totalCostOfLoanDiff);
+  document.getElementById('totalInterestPaidDiff').innerHTML =
+    formatter.format(interestPaidDiff);
+  document.getElementById('totalCostOfLoanDiff').innerHTML =
+    formatter.format(totalCostOfLoanDiff);
 
   if (formCalc.checkValidity()) {
     document.getElementById('results-section').classList.remove('d-none');
@@ -362,34 +365,44 @@ function monthlyPayment(p, n, i) {
   return (p * i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
 }
 
-function calculateTotalInterestPaidFixedLoan(downPayment, loanAmount, loanTerm, interestRate, paymentFrequency) {
-    const principal = loanAmount - downPayment;
-    const annualInterestRate = interestRate / 100;
- 
-    let paymentsPerYear;
-    switch (paymentFrequency.toLowerCase()) {
-        case 'monthly':
-            paymentsPerYear = 12;
-            break;
-        case 'bi-weekly':
-            paymentsPerYear = 26;
-            break;
-        case 'weekly':
-            paymentsPerYear = 52;
-            break;
-        default:
-            console.log("Invalid payment frequency. Use 'monthly', 'bi-weekly', or 'weekly'.");
-    }
- 
-    const totalPayments = loanTerm * paymentsPerYear;
-    const periodicInterestRate = annualInterestRate / paymentsPerYear;
-   
-    const monthlyPayment = (principal * periodicInterestRate) / (1 - Math.pow(1 + periodicInterestRate, -totalPayments));
-   
-    const totalAmountPaid = monthlyPayment * totalPayments;
-    const totalInterestPaid = totalAmountPaid - principal;
-   
-    return totalInterestPaid;
+function calculateTotalInterestPaidFixedLoan(
+  downPayment,
+  loanAmount,
+  loanTerm,
+  interestRate,
+  paymentFrequency,
+) {
+  const principal = loanAmount - downPayment;
+  const annualInterestRate = interestRate / 100;
+
+  let paymentsPerYear;
+  switch (paymentFrequency.toLowerCase()) {
+    case 'monthly':
+      paymentsPerYear = 12;
+      break;
+    case 'bi-weekly':
+      paymentsPerYear = 26;
+      break;
+    case 'weekly':
+      paymentsPerYear = 52;
+      break;
+    default:
+      console.log(
+        "Invalid payment frequency. Use 'monthly', 'bi-weekly', or 'weekly'.",
+      );
+  }
+
+  const totalPayments = loanTerm * paymentsPerYear;
+  const periodicInterestRate = annualInterestRate / paymentsPerYear;
+
+  const monthlyPayment =
+    (principal * periodicInterestRate) /
+    (1 - Math.pow(1 + periodicInterestRate, -totalPayments));
+
+  const totalAmountPaid = monthlyPayment * totalPayments;
+  const totalInterestPaid = totalAmountPaid - principal;
+
+  return totalInterestPaid;
 }
 
 function calculateTotalFixedMortgageCost(
@@ -487,26 +500,51 @@ function calculateTotalInterestPaidAdjustableLoan(
       paymentsPerYear = 52;
       break;
     default:
-      console.log("Invalid payment frequency. Use 'monthly', 'bi-weekly', or 'weekly'.");
+      console.log(
+        "Invalid payment frequency. Use 'monthly', 'bi-weekly', or 'weekly'.",
+      );
   }
 
-  const fixedRateMonthlyPayment = calculateFixedRateMonthlyPayment(principal, initialRate, fixedYears);
-  const paymentsMadeDuringFixedPeriod = fixedRateMonthlyPayment * (fixedYears * paymentsPerYear);
-  const totalInterestDuringFixedPeriod = paymentsMadeDuringFixedPeriod - (fixedRateMonthlyPayment * fixedYears * 12);
+  const fixedRateMonthlyPayment = calculateFixedRateMonthlyPayment(
+    principal,
+    initialRate,
+    fixedYears,
+  );
+  const paymentsMadeDuringFixedPeriod =
+    fixedRateMonthlyPayment * (fixedYears * paymentsPerYear);
+  const totalInterestDuringFixedPeriod =
+    paymentsMadeDuringFixedPeriod - fixedRateMonthlyPayment * fixedYears * 12;
 
   const paymentsMade = fixedYears * paymentsPerYear;
-  const remainingPrincipal = calculateRemainingBalance(principal, initialRate, totalYears, paymentsMade);
+  const remainingPrincipal = calculateRemainingBalance(
+    principal,
+    initialRate,
+    totalYears,
+    paymentsMade,
+  );
 
   let totalInterestPaid = totalInterestDuringFixedPeriod;
   let currentPrincipal = remainingPrincipal;
 
   for (let i = 1; i <= totalYears - fixedYears; i++) {
-    const adjustedRate = calculateAdjustedRate(initialRate, indexRate, margin, caps, indexRateRise, i);
+    const adjustedRate = calculateAdjustedRate(
+      initialRate,
+      indexRate,
+      margin,
+      caps,
+      indexRateRise,
+      i,
+    );
     const monthlyRate = adjustedRate / 12 / 100;
     const remainingMonths = (totalYears - fixedYears - i + 1) * 12;
-    const monthlyPayment = calculateFixedRateMonthlyPayment(currentPrincipal, adjustedRate, remainingMonths / 12);
-    
-    for (let j = 0; j < 12; j++) { // 12 months per year
+    const monthlyPayment = calculateFixedRateMonthlyPayment(
+      currentPrincipal,
+      adjustedRate,
+      remainingMonths / 12,
+    );
+
+    for (let j = 0; j < 12; j++) {
+      // 12 months per year
       const interestPayment = currentPrincipal * monthlyRate;
       totalInterestPaid += interestPayment;
       const principalPayment = monthlyPayment - interestPayment;
@@ -517,8 +555,7 @@ function calculateTotalInterestPaidAdjustableLoan(
   return totalInterestPaid.toFixed(2);
 }
 
-
-function calculateTotalMortgageInterestPaid (
+function calculateTotalMortgageInterestPaid(
   downPayment,
   principal,
   annualRate,
@@ -532,7 +569,7 @@ function calculateTotalMortgageInterestPaid (
       principal,
       loanTermYears,
       annualRate,
-      paymentFrequency
+      paymentFrequency,
     );
   } else if (loanType === 'Adjustable') {
     return calculateTotalInterestPaidAdjustableLoan(
