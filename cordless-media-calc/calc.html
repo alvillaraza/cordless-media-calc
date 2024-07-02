@@ -399,44 +399,34 @@
                 </form>
             </section>
 
-            <!-- Results -->
-            <section id="results-section" class="d-none">
+            <!-- Results  -->
+            <section id="results-section">
+                <!-- class="d-none" -->
                 <hr />
                 <section>
                     <header class="text-center">
                         <h2 class="gradient-text">Comparison Results</h2>
-                        <div
-                            class="d-flex justify-content-center align-items-end"
-                        >
-                            <h4 class="text-center m-0">
-                                Loan <strong>1</strong>
-                            </h4>
-
-                            <span class="px-2 text-black-50">vs</span>
-
-                            <h4 class="text-center m-0">
-                                Loan <strong>2</strong>
-                            </h4>
-                        </div>
                     </header>
                 </section>
 
-                <hr />
+                <div class="d-flex flex-wrap">
+                    <h5 class="flex-fill text-center text-nowrap">Loan 1</h5>
+                    <h5 class="flex-fill text-center text-nowrap">Loan 2</h5>
+                    <h5 class="flex-fill text-center text-nowrap">
+                        Difference
+                    </h5>
+                </div>
 
                 <article class="pb-4">
                     <div class="mb-3">
                         <div class="px-3 py-2 text-center">
-                            <small
-                                class="d-flex flex-wrap justify-content-center"
-                                ><strong class="px-1 text-nowrap"
-                                    >Monthly Payment</strong
-                                ></small
-                            >
+                            <h6 class="px-1 text-nowrap mb-0">
+                                Monthly Payment
+                            </h6>
                         </div>
 
                         <div
-                            class="d-flex flex-wrap text-center border overflow-hidden"
-                            style="border-radius: 0.5rem"
+                            class="d-flex flex-wrap text-center border rounded overflow-hidden"
                         >
                             <div class="d-flex flex-column flex-fill px-4 py-3">
                                 <p
@@ -446,13 +436,11 @@
                                 >
                                     $0.00
                                 </p>
-                                <small class="text-black-50">monthly</small>
                             </div>
                             <div class="d-flex flex-column flex-fill px-4 py-3">
                                 <p class="mb-0" id="monthlyPaymentAmountTwo">
                                     $0.00
                                 </p>
-                                <small class="text-black-50">monthly</small>
                             </div>
 
                             <div
@@ -468,20 +456,21 @@
 
                     <div class="mb-3">
                         <div class="px-3 py-2 text-center">
-                            <small
-                                class="d-flex flex-wrap justify-content-center"
-                                ><strong class="px-1 text-nowrap"
-                                    >Total Interest Paid</strong
+                            <h6
+                                class="d-flex flex-column flex-wrap justify-content-center px-1 mb-0"
+                            >
+                                Total Interest Paid
+                                <span class="text-black-50"
+                                    ><small
+                                        >of the loan over the life of the
+                                        loan</small
+                                    ></span
                                 >
-                                <span class="text-black-50 text-nowrap"
-                                    >of the loan over the life of the loan</span
-                                >
-                            </small>
+                            </h6>
                         </div>
 
                         <div
-                            class="d-flex flex-wrap text-center border overflow-hidden"
-                            style="border-radius: 0.5rem"
+                            class="d-flex flex-wrap text-center border rounded overflow-hidden"
                         >
                             <div class="d-flex flex-column flex-fill px-4 py-3">
                                 <p class="mb-0" id="totalInterestPaidOne">
@@ -507,20 +496,18 @@
 
                     <div class="mb-3">
                         <div class="px-3 py-2 text-center">
-                            <small
-                                class="d-flex flex-wrap justify-content-center"
-                                ><strong class="px-1 text-nowrap"
-                                    >Total Cost of the Loan</strong
-                                >
-                                <span class="text-black-50 text-nowrap"
-                                    >(principal + interest)</span
-                                ></small
+                            <h6
+                                class="d-flex flex-column flex-wrap justify-content-center px-1 mb-0"
                             >
+                                Total Cost of the Loan
+                                <span class="text-black-50"
+                                    ><small>(principal + interest)</small></span
+                                >
+                            </h6>
                         </div>
 
                         <div
-                            class="d-flex flex-wrap text-center border overflow-hidden"
-                            style="border-radius: 0.5rem"
+                            class="d-flex flex-wrap text-center border rounded overflow-hidden"
                         >
                             <div class="d-flex flex-column flex-fill px-4 py-3">
                                 <p class="mb-0" id="totalCostOfLoanOne">
@@ -549,10 +536,7 @@
                     </div>
                 </article>
 
-                <aside
-                    class="bg-light border px-4 py-3"
-                    style="border-radius: 0.5rem"
-                >
+                <aside class="bg-light border px-4 py-3">
                     <small
                         ><strong>NOTE:</strong> Adjustable Rate is calculated
                         based on an initial fixed period of 5 years, a 2%
