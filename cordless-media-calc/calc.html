@@ -5,568 +5,653 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&display=swap"
-      rel="stylesheet"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&display=swap"
+            rel="stylesheet"
+        />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-      crossorigin="anonymous"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+            crossorigin="anonymous"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <style>
-      h1,
-      h2,
-      h4,
-      h5 {
-        font-family: 'DM Serif Text', serif;
-      }
+        <style>
+            h1,
+            h2,
+            h4,
+            h5 {
+                font-family: 'DM Serif Text', serif;
+            }
 
-      h3,
-      h6 {
-        font-family: 'DM Sans', sans-serif;
-      }
+            h3,
+            h6 {
+                font-family: 'DM Sans', sans-serif;
+            }
 
-      .gradient-text {
-        background-image: linear-gradient(45deg, #312dff, #00e0ff);
-        background-size: 100%;
-        background-repeat: repeat;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
-      }
-    </style>
-  </head>
+            .gradient-text {
+                background-image: linear-gradient(45deg, #312dff, #00e0ff);
+                background-size: 100%;
+                background-repeat: repeat;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-background-clip: text;
+                -moz-text-fill-color: transparent;
+            }
+        </style>
+    </head>
 
-  <body>
-    <main class="p-4">
-      <header class="text-center">
-        <h1 class="display-5 m-0 gradient-text">Compare your Mortgage Loans</h1>
-        <p class="lead m-0">Easily determine which loan is best for you.</p>
-      </header>
-
-      <hr />
-
-      <section class="pb-4">
-        <form id="formCalc">
-          <div
-            class="d-flex flex-wrap mb-3"
-            style="gap: 1.5rem; justify-content: space-between"
-          >
-            <div class="flex-fill">
-              <h3 class="gradient-text flex-fill text-center m-0">
-                Loan <strong>1</strong>
-              </h3>
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="downPayment1"
-                  ><small>Down Payment</small></label
-                >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                  </div>
-                  <input
-                    type="number"
-                    id="downPayment1"
-                    class="form-control"
-                    placeholder="30,000"
-                    onfocus="this.placeholder = ''"
-                    aria-label="Down Payment"
-                    aria-describedby="downPayment1"
-                  />
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanAmount1"
-                  ><small>Loan Amount</small></label
-                >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                  </div>
-                  <input
-                    type="number"
-                    id="loanAmount1"
-                    class="form-control"
-                    placeholder="400,000"
-                    onfocus="this.placeholder = ''"
-                    aria-label="Loan Amount"
-                    aria-describedby="loanAmount1"
-                  />
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanTerm1"
-                  ><small>Loan Term</small></label
-                >
-
-                <div class="input-group">
-                  <select
-                    type="number"
-                    id="loanTerm1"
-                    class="form-control"
-                    aria-label="Loan Term"
-                    aria-describedby="loanTerm1"
-                  >
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                  </select>
-                  <div class="input-group-append">
-                    <span class="input-group-text">years</span>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="annualInterestRate1"
-                  ><small>Annual Interest Rate</small></label
-                >
-                <div class="input-group">
-                  <input
-                    type="number"
-                    id="annualInterestRate1"
-                    class="form-control"
-                    placeholder="7.25"
-                    step="any"
-                    aria-label="Annual Interest Rate"
-                    aria-describedby="annualInterestRate1"
-                  />
-                  <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanType1"
-                  ><small>Loan Type</small></label
-                >
-<!-- TODO: in smaller viewports, the dropdown for these look tiny and messed up -->
-                <div class="input-group">
-                  <select
-                    class="form-control"
-                    id="loanType1"
-                    placeholder="What type of Loan is this?"
-                    aria-label="Loan Type"
-                    aria-describedby="loanType1"
-                    required
-                  >
-                    <option disabled hidden selected value="">
-                      What type of loan is this?
-                    </option>
-                    <option>Fixed</option>
-                    <option>Adjustable</option>
-                  </select>
-                </div>
-              </fieldset>
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="paymentFrequency1">
-                  <small>Payment Frequency</small>
-                </label>
-                <div class="input-group">
-                  <select
-                    class="form-control"
-                    id="paymentFrequency1"
-                    aria-label="Payment Frequency"
-                    aria-describedby="paymentFrequency1"
-                    required
-                  >
-                    <option value="" disabled selected hidden>
-                      How often are your payments?
-                    </option>
-                    <option value="Monthly">Monthly</option>
-                    <option value="Bi-weekly">Bi-weekly</option>
-                    <option value="Weekly">Weekly</option>
-                  </select>
-                </div>
-              </fieldset>
-            </div>
-            <div class="flex-fill">
-              <h3 class="gradient-text flex-fill text-center m-0">
-                Loan <strong>2</strong>
-              </h3>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="downPayment2"
-                  ><small>Down Payment</small></label
-                >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                  </div>
-                  <input
-                    type="number"
-                    id="downPayment2"
-                    class="form-control"
-                    placeholder="30,000"
-                    onfocus="this.placeholder = ''"
-                    aria-label="Down Payment"
-                    aria-describedby="downPayment2"
-                  />
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanAmount2"
-                  ><small>Loan Amount</small></label
-                >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                  </div>
-                  <input
-                    type="number"
-                    id="loanAmount2"
-                    class="form-control"
-                    placeholder="400,000"
-                    onfocus="this.placeholder = ''"
-                    aria-label="Loan Amount"
-                    aria-describedby="loanAmount2"
-                  />
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanTerm2"
-                  ><small>Loan Term</small></label
-                >
-
-                <div class="input-group">
-                  <select
-                    type="number"
-                    id="loanTerm2"
-                    class="form-control"
-                    aria-label="Loan Term"
-                    aria-describedby="loanTerm2"
-                  >
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                  </select>
-                  <div class="input-group-append">
-                    <span class="input-group-text">years</span>
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="annualInterestRate2"
-                  ><small>Annual Interest Rate</small></label
-                >
-
-                <div class="input-group">
-                  <input
-                    type="number"
-                    id="annualInterestRate2"
-                    class="form-control"
-                    placeholder="7.25"
-                    step="any"
-                    aria-label="Annual Interest Rate"
-                    aria-describedby="annualInterestRate2"
-                  />
-                  <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="loanType2"
-                  ><small>Loan Type</small></label
-                >
-
-                <div class="input-group">
-                  <select
-                    class="form-control"
-                    id="loanType2"
-                    placeholder="What type of loan is this?"
-                    aria-label="Loan Type"
-                    aria-describedby="loanType2"
-                    required
-                  >
-                    <option disabled hidden selected value="">
-                      What type of loan is this?
-                    </option>
-                    <option value="Fixed">Fixed</option>
-                    <option value="Adjustable">Adjustable</option>
-                  </select>
-                </div>
-              </fieldset>
-              <fieldset class="mb-2">
-                <label class="text-black-50 mb-1" for="paymentFrequency2"
-                  ><small>Payment Frequency</small></label
-                >
-                <div class="input-group">
-                  <select
-                    class="form-control"
-                    id="paymentFrequency2"
-                    aria-label="Payment Frequency"
-                    aria-describedby="paymentFrequency2"
-                    required
-                  >
-                    <option value="" disabled hidden selected>
-                      How often are your payments?
-                    </option>
-                    <option value="Monthly">Monthly</option>
-                    <option value="Bi-weekly">Bi-weekly</option>
-                    <option value="Weekly">Weekly</option>
-                  </select>
-                </div>
-              </fieldset>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-center">
-            <button
-              id="compareLoansButton"
-              class="btn btn-primary btn-lg px-5 py-3"
-              type="submit"
-            >
-              Compare Loans
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <!-- Results -->
-      <section id="results-section" class="d-none">
-        <hr />
-        <section>
-          <header class="text-center">
-            <h2 class="gradient-text">Comparison Results</h2>
-            <div class="d-flex justify-content-center align-items-end">
-              <h4 class="text-center m-0">Loan <strong>1</strong></h4>
-
-              <span class="px-2 text-black-50">vs</span>
-
-              <h4 class="text-center m-0">Loan <strong>2</strong></h4>
-            </div>
-          </header>
-        </section>
-
-        <hr />
-
-        <article class="pb-4">
-          <div class="mb-3">
-            <div class="px-3 py-2 text-center">
-              <small class="d-flex flex-wrap justify-content-center"
-                ><strong class="px-1 text-nowrap"
-                  >Monthly Payment</strong
-                ></small
-              >
-            </div>
-
-            <div
-              class="d-flex flex-wrap text-center border overflow-hidden"
-              style="border-radius: 0.5rem"
-            >
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p
-                  class="mb-0"
-                  id="monthlyPaymentAmountOne"
-                  class="monthlyPaymentAmountOne"
-                >
-                  N/A
+    <body>
+        <main class="p-4">
+            <header class="text-center">
+                <h1 class="display-5 m-0 gradient-text">
+                    Compare your Mortgage Loans
+                </h1>
+                <p class="lead m-0">
+                    Easily determine which loan is best for you.
                 </p>
-                <small class="text-black-50">monthly</small>
-              </div>
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p class="mb-0" id="monthlyPaymentAmountTwo">N/A</p>
-                <small class="text-black-50">monthly</small>
-              </div>
+            </header>
 
-              <!-- <div
-                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-              >
-                <p id="monthlyDifference" class="mb-0">
-                  <strong>N/A</strong>
-                </p>
-                <small class="text-black-50">difference</small>
-              </div> -->
-            </div>
-          </div>
+            <hr />
 
-          <div class="mb-3">
-            <div class="px-3 py-2 text-center">
-              <small class="d-flex flex-wrap justify-content-center"
-                ><strong class="px-1 text-nowrap">Total Interest Paid</strong>
-                <span class="text-black-50 text-nowrap"
-                  >of the loan over the life of the loan</span
+            <section class="pb-4">
+                <form id="formCalc">
+                    <div
+                        class="d-flex flex-wrap mb-3"
+                        style="gap: 1.5rem; justify-content: space-between"
+                    >
+                        <div class="flex-fill">
+                            <h3 class="gradient-text flex-fill text-center m-0">
+                                Loan <strong>1</strong>
+                            </h3>
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="downPayment1"
+                                    ><small>Down Payment</small></label
+                                >
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input
+                                        type="number"
+                                        id="downPayment1"
+                                        class="form-control"
+                                        placeholder="30,000"
+                                        onfocus="this.placeholder = ''"
+                                        aria-label="Down Payment"
+                                        aria-describedby="downPayment1"
+                                    />
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanAmount1"
+                                    ><small>Loan Amount</small></label
+                                >
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input
+                                        type="number"
+                                        id="loanAmount1"
+                                        class="form-control"
+                                        placeholder="400,000"
+                                        onfocus="this.placeholder = ''"
+                                        aria-label="Loan Amount"
+                                        aria-describedby="loanAmount1"
+                                    />
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanTerm1"
+                                    ><small>Loan Term</small></label
+                                >
+
+                                <div class="input-group">
+                                    <select
+                                        type="number"
+                                        id="loanTerm1"
+                                        class="form-control"
+                                        aria-label="Loan Term"
+                                        aria-describedby="loanTerm1"
+                                    >
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"
+                                            >years</span
+                                        >
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="annualInterestRate1"
+                                    ><small>Annual Interest Rate</small></label
+                                >
+                                <div class="input-group">
+                                    <input
+                                        type="number"
+                                        id="annualInterestRate1"
+                                        class="form-control"
+                                        placeholder="7.25"
+                                        step="any"
+                                        aria-label="Annual Interest Rate"
+                                        aria-describedby="annualInterestRate1"
+                                    />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanType1"
+                                    ><small>Loan Type</small></label
+                                >
+                                <!-- TODO: in smaller viewports, the dropdown for these look tiny and messed up -->
+                                <div class="input-group">
+                                    <select
+                                        class="form-control"
+                                        id="loanType1"
+                                        placeholder="What type of Loan is this?"
+                                        aria-label="Loan Type"
+                                        aria-describedby="loanType1"
+                                        required
+                                    >
+                                        <option
+                                            disabled
+                                            hidden
+                                            selected
+                                            value=""
+                                        >
+                                            What type of loan is this?
+                                        </option>
+                                        <option>Fixed</option>
+                                        <option>Adjustable</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="paymentFrequency1"
+                                >
+                                    <small>Payment Frequency</small>
+                                </label>
+                                <div class="input-group">
+                                    <select
+                                        class="form-control"
+                                        id="paymentFrequency1"
+                                        aria-label="Payment Frequency"
+                                        aria-describedby="paymentFrequency1"
+                                        required
+                                    >
+                                        <option
+                                            value=""
+                                            disabled
+                                            selected
+                                            hidden
+                                        >
+                                            How often are your payments?
+                                        </option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Bi-weekly">
+                                            Bi-weekly
+                                        </option>
+                                        <option value="Weekly">Weekly</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="flex-fill">
+                            <h3 class="gradient-text flex-fill text-center m-0">
+                                Loan <strong>2</strong>
+                            </h3>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="downPayment2"
+                                    ><small>Down Payment</small></label
+                                >
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input
+                                        type="number"
+                                        id="downPayment2"
+                                        class="form-control"
+                                        placeholder="30,000"
+                                        onfocus="this.placeholder = ''"
+                                        aria-label="Down Payment"
+                                        aria-describedby="downPayment2"
+                                    />
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanAmount2"
+                                    ><small>Loan Amount</small></label
+                                >
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input
+                                        type="number"
+                                        id="loanAmount2"
+                                        class="form-control"
+                                        placeholder="400,000"
+                                        onfocus="this.placeholder = ''"
+                                        aria-label="Loan Amount"
+                                        aria-describedby="loanAmount2"
+                                    />
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanTerm2"
+                                    ><small>Loan Term</small></label
+                                >
+
+                                <div class="input-group">
+                                    <select
+                                        type="number"
+                                        id="loanTerm2"
+                                        class="form-control"
+                                        aria-label="Loan Term"
+                                        aria-describedby="loanTerm2"
+                                    >
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"
+                                            >years</span
+                                        >
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="annualInterestRate2"
+                                    ><small>Annual Interest Rate</small></label
+                                >
+
+                                <div class="input-group">
+                                    <input
+                                        type="number"
+                                        id="annualInterestRate2"
+                                        class="form-control"
+                                        placeholder="7.25"
+                                        step="any"
+                                        aria-label="Annual Interest Rate"
+                                        aria-describedby="annualInterestRate2"
+                                    />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="loanType2"
+                                    ><small>Loan Type</small></label
+                                >
+
+                                <div class="input-group">
+                                    <select
+                                        class="form-control"
+                                        id="loanType2"
+                                        placeholder="What type of loan is this?"
+                                        aria-label="Loan Type"
+                                        aria-describedby="loanType2"
+                                        required
+                                    >
+                                        <option
+                                            disabled
+                                            hidden
+                                            selected
+                                            value=""
+                                        >
+                                            What type of loan is this?
+                                        </option>
+                                        <option value="Fixed">Fixed</option>
+                                        <option value="Adjustable">
+                                            Adjustable
+                                        </option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset class="mb-2">
+                                <label
+                                    class="text-black-50 mb-1"
+                                    for="paymentFrequency2"
+                                    ><small>Payment Frequency</small></label
+                                >
+                                <div class="input-group">
+                                    <select
+                                        class="form-control"
+                                        id="paymentFrequency2"
+                                        aria-label="Payment Frequency"
+                                        aria-describedby="paymentFrequency2"
+                                        required
+                                    >
+                                        <option
+                                            value=""
+                                            disabled
+                                            hidden
+                                            selected
+                                        >
+                                            How often are your payments?
+                                        </option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Bi-weekly">
+                                            Bi-weekly
+                                        </option>
+                                        <option value="Weekly">Weekly</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button
+                            id="compareLoansButton"
+                            class="btn btn-primary btn-lg px-5 py-3"
+                            type="submit"
+                        >
+                            Compare Loans
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Results -->
+            <section id="results-section" class="d-none">
+                <hr />
+                <section>
+                    <header class="text-center">
+                        <h2 class="gradient-text">Comparison Results</h2>
+                        <div
+                            class="d-flex justify-content-center align-items-end"
+                        >
+                            <h4 class="text-center m-0">
+                                Loan <strong>1</strong>
+                            </h4>
+
+                            <span class="px-2 text-black-50">vs</span>
+
+                            <h4 class="text-center m-0">
+                                Loan <strong>2</strong>
+                            </h4>
+                        </div>
+                    </header>
+                </section>
+
+                <hr />
+
+                <article class="pb-4">
+                    <div class="mb-3">
+                        <div class="px-3 py-2 text-center">
+                            <small
+                                class="d-flex flex-wrap justify-content-center"
+                                ><strong class="px-1 text-nowrap"
+                                    >Monthly Payment</strong
+                                ></small
+                            >
+                        </div>
+
+                        <div
+                            class="d-flex flex-wrap text-center border overflow-hidden"
+                            style="border-radius: 0.5rem"
+                        >
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p
+                                    class="mb-0"
+                                    id="monthlyPaymentAmountOne"
+                                    class="monthlyPaymentAmountOne"
+                                >
+                                    N/A
+                                </p>
+                                <small class="text-black-50">monthly</small>
+                            </div>
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p class="mb-0" id="monthlyPaymentAmountTwo">
+                                    N/A
+                                </p>
+                                <small class="text-black-50">monthly</small>
+                            </div>
+
+                            <div
+                                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+                            >
+                                <p id="monthlyDifference" class="mb-0">
+                                    <strong>N/A</strong>
+                                </p>
+                                <!-- <small class="text-black-50">difference</small> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="px-3 py-2 text-center">
+                            <small
+                                class="d-flex flex-wrap justify-content-center"
+                                ><strong class="px-1 text-nowrap"
+                                    >Total Interest Paid</strong
+                                >
+                                <span class="text-black-50 text-nowrap"
+                                    >of the loan over the life of the loan</span
+                                >
+                            </small>
+                        </div>
+
+                        <div
+                            class="d-flex flex-wrap text-center border overflow-hidden"
+                            style="border-radius: 0.5rem"
+                        >
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p class="mb-0" id="totalInterestPaidOne">
+                                    N/A
+                                </p>
+                            </div>
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p id="totalInterestPaidTwo" class="mb-0">
+                                    N/A
+                                </p>
+                            </div>
+
+                            <div
+                                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+                            >
+                                <p id="totalInterestPaidDiff" class="mb-0">
+                                    <strong>N/A</strong>
+                                </p>
+                                <!-- <small class="text-black-50">difference</small> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="px-3 py-2 text-center">
+                            <small
+                                class="d-flex flex-wrap justify-content-center"
+                                ><strong class="px-1 text-nowrap"
+                                    >Total Cost of the Loan</strong
+                                >
+                                <span class="text-black-50 text-nowrap"
+                                    >(principal + interest)</span
+                                ></small
+                            >
+                        </div>
+
+                        <div
+                            class="d-flex flex-wrap text-center border overflow-hidden"
+                            style="border-radius: 0.5rem"
+                        >
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p class="mb-0" id="totalCostOfLoanOne">N/A</p>
+                            </div>
+                            <div class="d-flex flex-column flex-fill px-4 py-3">
+                                <p
+                                    class="mb-0"
+                                    class="monthlyPaymentAmountTwo"
+                                    id="totalCostOfLoanTwo"
+                                >
+                                    N/A
+                                </p>
+                            </div>
+
+                            <div
+                                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
+                            >
+                                <p id="totalCostOfLoanDiff" class="mb-0">
+                                    <strong>N/A</strong>
+                                </p>
+                                <!-- <small class="text-black-50">difference</small> -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <aside
+                    class="bg-light border px-4 py-3"
+                    style="border-radius: 0.5rem"
                 >
-              </small>
-            </div>
+                    <small
+                        ><strong>NOTE:</strong> Adjustable Rate is calculated
+                        based on an initial fixed period of 5 years, a 2%
+                        margin, an index rate estimate that starts at 1% and
+                        expected to rise 0.5% per year, and rate caps of 2% per
+                        adjustment period, 5% over the life of the loan.</small
+                    >
+                </aside>
 
-            <div
-              class="d-flex flex-wrap text-center border overflow-hidden"
-              style="border-radius: 0.5rem"
-            >
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p class="mb-0" id="totalInterestPaidOne">N/A</p>
-              </div>
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p id="totalInterestPaidTwo" class="mb-0">N/A</p>
-              </div>
+                <!-- Charts -->
+                <section>
+                    <hr />
+                    <header class="text-center">
+                        <h2 class="gradient-text">Charts</h2>
 
-              <!-- <div
-                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-              >
-                <p id="totalInterestPaidDiff" class="mb-0">
-                  <strong>N/A</strong>
-                </p>
-                <small class="text-black-50">difference</small>
-              </div> -->
-            </div>
-          </div>
+                        <h3>Comparisons</h3>
+                    </header>
+                    <hr />
 
-          <div class="mb-3">
-            <div class="px-3 py-2 text-center">
-              <small class="d-flex flex-wrap justify-content-center"
-                ><strong class="px-1 text-nowrap"
-                  >Total Cost of the Loan</strong
-                >
-                <span class="text-black-50 text-nowrap"
-                  >(principal + interest)</span
-                ></small
-              >
-            </div>
+                    <ul
+                        class="nav nav-pills mb-3"
+                        id="pills-tab"
+                        role="tablist"
+                    >
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                id="show-all"
+                                data-toggle="pill"
+                                href="#"
+                                role="tab"
+                                aria-controls="pills-home"
+                                aria-selected="true"
+                                >All</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="pills-monthly-tab"
+                                data-toggle="pill"
+                                href="#monthlyChartJS2"
+                                role="tab"
+                                aria-controls="pills-monthly"
+                                aria-selected="false"
+                                >Monthly</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="pills-interest-tab"
+                                data-toggle="pill"
+                                href="#interestChartJS2"
+                                role="tab"
+                                aria-controls="pills-interest"
+                                aria-selected="false"
+                                >Interest</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="pills-cost-tab"
+                                data-toggle="pill"
+                                href="#loanCostChartJS2"
+                                role="tab"
+                                aria-controls="pills-cost"
+                                aria-selected="false"
+                                >Total Cost</a
+                            >
+                        </li>
+                    </ul>
 
-            <div
-              class="d-flex flex-wrap text-center border overflow-hidden"
-              style="border-radius: 0.5rem"
-            >
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p class="mb-0" id="totalCostOfLoanOne">N/A</p>
-              </div>
-              <div class="d-flex flex-column flex-fill px-4 py-3">
-                <p
-                  class="mb-0"
-                  class="monthlyPaymentAmountTwo"
-                  id="totalCostOfLoanTwo"
-                >
-                  N/A
-                </p>
-              </div>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div
+                            id="monthlyChartJS2"
+                            class="my-5 tab-pane fade show active"
+                        >
+                            <canvas id="monthlyChartJS" class=""> </canvas>
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <div
+                            id="interestChartJS2"
+                            class="my-5 tab-pane fade show active"
+                        >
+                            <canvas id="interestChartJS" class=""></canvas>
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <div
+                            id="loanCostChartJS2"
+                            class="my-5 tab-pane fade show active"
+                        >
+                            <canvas id="loanCostChartJS" class=""></canvas>
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </body>
 
-              <!-- <div
-                class="d-flex flex-column flex-fill px-4 py-3 bg-light border-left"
-              >
-                <p id="totalCostOfLoanDiff" class="mb-0">
-                  <strong>N/A</strong>
-                </p>
-                <small class="text-black-50">difference</small>
-              </div> -->
-            </div>
-          </div>
-        </article>
-
-        <aside class="bg-light border px-4 py-3" style="border-radius: 0.5rem">
-          <small
-          ><strong>NOTE:</strong> Adjustable Rate is calculated based on an initial fixed period of 5 years, a 2% margin, an index rate estimate that starts at 1% and expected to rise 0.5% per year, and rate caps of 2% per adjustment period, 5% over the life of the loan.</small
-          >
-        </aside>
-
-        <!-- Charts -->
-        <section>
-          <hr />
-          <header class="text-center">
-            <h2 class="gradient-text">Charts</h2>
-
-            <h3>Comparisons</h3>
-          </header>
-          <hr />
-
-          
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="show-all"
-                data-toggle="pill"
-                href="#"
-                role="tab"
-                aria-controls="pills-home"
-                aria-selected="true"
-                >All</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="pills-monthly-tab"
-                data-toggle="pill"
-                href="#monthlyChartJS2"
-                role="tab"
-                aria-controls="pills-monthly"
-                aria-selected="false"
-                >Monthly</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="pills-interest-tab"
-                data-toggle="pill"
-                href="#interestChartJS2"
-                role="tab"
-                aria-controls="pills-interest"
-                aria-selected="false"
-                >Interest</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="pills-cost-tab"
-                data-toggle="pill"
-                href="#loanCostChartJS2"
-                role="tab"
-                aria-controls="pills-cost"
-                aria-selected="false"
-                >Total Cost</a
-              >
-            </li>
-          </ul>
-
-          <div class="tab-content" id="pills-tabContent">
-            <div
-              id="monthlyChartJS2"
-              class="my-5 tab-pane fade show active"
-            >
-              <canvas id="monthlyChartJS" class=""> </canvas>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <div
-              id="interestChartJS2"
-    
-              class="my-5 tab-pane fade show active"
-            >
-              <canvas id="interestChartJS" class=""></canvas>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <div
-              id="loanCostChartJS2"
-  
-              class="my-5 tab-pane fade show active"
-            >
-              <canvas id="loanCostChartJS" class=""></canvas>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          </div>
-        </section>
-      </section>
-    </main>
-  </body>
-
-  <script type="module" src="calc.js"></script>
+    <script type="module" src="calc.js"></script>
 </html>
